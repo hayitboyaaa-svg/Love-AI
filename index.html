@@ -1,1066 +1,926 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FITBURN ULTIMATE // CYBERPUNK FITNESS OS</title>
-    <meta name="description" content="Welcome to Fitburn Ultimate. The next-generation Cyberpunk Fitness OS designed for your ultimate workout transformation. Track your progress and upgrade your body.">
-    <meta name="keywords" content="FITBURN ULTIMATE, CYBERPUNK FITNESS OS, Hayitboyaaa, Bek-Uz, ozish, fitnes, ozish sirlari, tez ozish, uy sharoitida ozish, semirish, mushak chiqarish, press chiqarish, trenirovka, uyda mashq qilish, ozish uchun mashqlar, parhez, ozish uchun parhez, to'g'ri ovqatlanish, sport, sog'lom hayot, kiberpank fitnes, fitnes dasturi, ozish kiyimlari, kkal hisoblash, vazn tashlash, qorin yo'qotish, belni ingichkalash, protein, sport zal, jismoniy tarbiya, yugurish, kardio mashqlar, kuch mashqlari, bodibilding, fitnes murabbiy, fitnes reja, ozish kursi, sog'lom ozish, erkaklar uchun ozish, ayollar uchun ozish, parhez taomlar, yog' yoqotish, kiber fitnes, jismoniy mashqlar, chidamlilik, chiniqish, baquvvat bo'lish, mushak massasi, fitnes kundaligi, o'zbekcha fitnes">
-    <meta name="google-site-verification" content="JD6gAeITdZ_rb3hgveGdU0CUNyrVduP2wAmujjww0yE" />
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Amazon</title>
+    <meta name="description" content="Bek-Uz - O'zbekistonning zamonaviy onlayn marketplace platformasi. Elektronika, kiyim-kechak, uy jihozlari, go'zallik mahsulotlari, kitoblar va minglab mahsulotlarni ishonchli sotib oling yoki soting.">
 
+<meta name="keywords" content="Bek-Uz, Bek Uz, marketplace, online shopping, online market, internet do'kon, O'zbekiston marketplace, O'zbekiston online do'kon, Amazon Uzbekistan, Uzum Market, AliExpress, elektronika, telefon, noutbuk, kompyuter, smartfon, planshet, televizor, kiyim-kechak, erkaklar kiyimi, ayollar kiyimi, bolalar kiyimi, oyoq kiyim, sport kiyimlari, sumka, soat, kosmetika, go'zallik mahsulotlari, uy jihozlari, mebel, oshxona buyumlari, maishiy texnika, kitoblar, o'yinchoqlar, avtomobil aksessuarlari, qurilish materiallari, santexnika, elektr jihozlari, bog' mahsulotlari, sog'liq mahsulotlari, chegirmalar, aksiya, arzon narx, bepul yetkazib berish, online buyurtma, internet savdo, sotuvchi, xaridor, e-commerce, ecommerce Uzbekistan, digital marketplace, secure payment, fast delivery, Hayitboyaaa, Bek-Uz Marketplace">
 
+<meta name="author" content="Hayitboyaaa">
+
+<meta name="robots" content="index, follow">
+
+<meta name="google-site-verification" content="JD6gAeITdZ_rb3hgveGdU0CUNyrVduP2wAmujjww0yE">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
+        
+        /* --- CORE SYSTEM DESIGN: AMAZON EMBER STYLE --- */
         :root {
-            --bg-cyber: #040406;
-            --surface-glass: rgba(18, 18, 26, 0.85);
-            --card-cyber: #0f0f14;
-            --neon-glow: #00f0ff;
-            --neon-orange: #ff5500;
-            --neon-laser: #ff0055;
-            --matrix-green: #00ff66;
-            --electric-gold: #ffaa00;
-            --text-cyber-pure: #ffffff;
-            --text-cyber-muted: #64748b;
-            --glass-border: rgba(255, 255, 255, 0.05);
-            --sticker-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            --amz-black: #131921;
+            --amz-dark: #232f3e;
+            --amz-blue: #37475a;
+            --amz-orange: #febd69;
+            --amz-gold: #f3a847;
+            --amz-btn: #ffd814;
+            --bg-body: #eaeded;
+            --text: #0f1111;
+            --link: #007185;
+            --price: #B12704;
+            --success: #067D62;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scrollbar-width: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        *::-webkit-scrollbar { display: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Amazon Ember", Arial, sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text); padding-bottom: 90px; min-height: 100vh; -webkit-tap-highlight-color: transparent; }
 
-        body {
-            background-color: var(--bg-cyber);
-            color: var(--text-cyber-pure);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            overflow-x: hidden;
-        }
-
-        /* TRUE MOBILE FULL-SCREEN CONFIGURATION */
-        .phone-frame {
-            width: 100%;
-            max-width: 480px; /* Telefonlar uchun universal kenglik */
-            min-height: 100vh;
-            background-color: var(--bg-cyber);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            box-shadow: 0 0 40px rgba(0,0,0,0.8);
-        }
-
-        header {
-            padding: 18px 20px;
-            background: linear-gradient(180deg, #09090d 0%, rgba(4, 4, 6, 0) 100%);
-            border-bottom: 1px solid var(--glass-border);
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            backdrop-filter: blur(10px);
-        }
-        header h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 18px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            background: linear-gradient(90deg, var(--neon-orange), var(--electric-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 12px rgba(255, 85, 0, 0.25);
-            flex: 1;
-            text-align: center;
-        }
-
-        .app-viewport {
-            flex: 1;
-            padding: 16px;
-            padding-bottom: 100px; /* Navigatsiya paneli uchun bo'shliq */
-            width: 100%;
-        }
-        .screen-view {
-            display: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .screen-view.active-view {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        h2 {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 6px;
-            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .subtitle {
-            color: var(--text-cyber-muted);
-            font-size: 12px;
-            margin-bottom: 16px;
-            line-height: 1.5;
-        }
-
-        .cyber-card {
-            background: var(--card-cyber);
-            border: 1px solid var(--glass-border);
-            padding: 16px;
-            border-radius: 16px;
-            margin-bottom: 16px;
-            position: relative;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        }
-
-        .form-element { margin-bottom: 12px; }
-        .form-element label {
-            display: block;
-            font-size: 10px;
-            font-weight: 800;
-            color: var(--text-cyber-muted);
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: 6px;
-        }
-        input, select {
-            width: 100%;
-            background-color: #06060a;
-            border: 1px solid #1d1d26;
-            color: var(--text-cyber-pure);
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.25s ease;
-        }
-        input:focus, select:focus {
-            border-color: var(--neon-orange);
-            background-color: #0b0b10;
-            outline: none;
-            box-shadow: 0 0 12px rgba(255, 85, 0, 0.15);
-        }
-
-        .cyber-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--neon-orange) 0%, #cc3300 100%);
-            color: var(--text-cyber-pure);
-            padding: 12px;
-            border: none;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(255, 85, 0, 0.2);
-            transition: all 0.25s ease;
-        }
-
-        /* STICKER SYSTEM PRO STYLE */
-        .sticker-container {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255, 85, 0, 0.1);
-            border: 1px solid rgba(255, 85, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-        .sticker-container svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* ROUTINE MANAGEMENT SYSTEM */
-        .routine-node {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #111118;
-            padding: 12px;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            border-left: 4px solid var(--electric-gold);
-            gap: 10px;
-        }
-        .routine-node.done-state {
-            border-left-color: var(--matrix-green);
-            background: rgba(0, 255, 102, 0.02);
-        }
-        .routine-node.done-state .routine-text-block { 
-            text-decoration: line-through; 
-            color: var(--text-cyber-muted); 
-        }
-        .time-badge { 
-            font-family: 'Orbitron', sans-serif; 
-            color: var(--neon-orange); 
-            font-size: 11px; 
-            font-weight: 700; 
-        }
+        /* HEADER & NAVIGATION */
+        header { background: var(--amz-black); color: white; position: sticky; top: 0; z-index: 9999; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .header-main { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; max-width: 1400px; margin: 0 auto; gap: 10px; }
+        .logo-box { display: flex; align-items: center; gap: 5px; text-decoration: none; }
+        .logo { font-size: 24px; font-weight: bold; color: white; cursor: pointer; }
+        .logo span { color: var(--amz-orange); font-size: 12px; vertical-align: super; }
         
-        .routine-controls { 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-        }
-        .cyber-check {
-            width: 22px;
-            height: 22px;
-            border: 2px solid #2d2d3d;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        .cyber-check::after { content: '✓'; color: #000; font-weight: 900; font-size: 12px; display: none; }
-        .routine-node.done-state .cyber-check { background-color: var(--matrix-green); border-color: var(--matrix-green); }
-        .routine-node.done-state .cyber-check::after { display: block; }
+        .header-right { display: flex; align-items: center; gap: 15px; }
         
-        /* ORIGINAL ERASER ACTION BUTTON */
-        .trash-trigger {
-            background: rgba(255, 0, 85, 0.1);
-            border: 1px solid rgba(255, 0, 85, 0.2);
-            border-radius: 6px;
-            padding: 5px;
-            cursor: pointer;
-            color: var(--neon-laser);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-        .trash-trigger:active {
-            background: rgba(255, 0, 85, 0.3);
-            transform: scale(0.9);
-        }
-        .trash-trigger svg { width: 16px; height: 16px; fill: currentColor; }
+        /* USER MENU AND DROPDOWN DROPAWAY */
+        .user-nav { font-size: 12px; cursor: pointer; text-align: left; line-height: 1.2; position: relative; padding: 6px; border: 1px solid transparent; transition: 0.2s; }
+        .user-nav:hover { border: 1px solid white; border-radius: 4px; }
+        .user-nav b { font-size: 13px; display: flex; align-items: center; gap: 3px; white-space: nowrap; overflow: hidden; max-width: 90px; text-overflow: ellipsis; }
+        .user-nav b::after { content: " ▾"; font-size: 10px; color: #ccc; }
 
-        /* DRILL CHIPS SYSTEM */
-        .drill-card {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            background: #0b0b10;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            border: 1px solid #14141f;
-        }
-        .drill-index {
-            width: 26px;
-            height: 26px;
-            background: #14141f;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            color: var(--neon-orange);
-        }
-        .drill-meta { flex: 1; }
-        .drill-meta h5 { font-size: 12px; font-weight: 700; color: var(--text-cyber-pure); margin-bottom: 2px; }
-        .drill-meta p { font-size: 10px; color: var(--neon-glow); }
+        .profile-popup { position: absolute; top: 42px; right: 0; background: white; color: black; border: 1px solid #ddd; border-radius: 6px; padding: 12px; min-width: 190px; display: none; box-shadow: 0 6px 25px rgba(0,0,0,0.25); z-index: 100000; }
+        .profile-popup.show { display: block; animation: popupAnim 0.2s ease; }
+        @keyframes popupAnim { from { opacity:0; transform: translateY(-5px); } to { opacity:1; transform: translateY(0); } }
+        .profile-popup p { font-size: 11px; color: #555; word-break: break-all; margin-bottom: 8px; }
+        .profile-popup button { width: 100%; background: #f0f2f2; border: 1px solid #d5d9d9; padding: 8px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; color: #111; transition: 0.2s; }
+        .profile-popup button:hover { background: #e3e6e6; border-color: #a2a6a6; }
 
-        .progress-hud { margin-bottom: 12px; }
-        .progress-hud-labels { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; margin-bottom: 4px; color: var(--text-cyber-muted); }
-        .progress-hud-bar { width: 100%; height: 6px; background: #12121c; border-radius: 3px; overflow: hidden; }
-        .progress-hud-fill { height: 100%; background: linear-gradient(90deg, var(--neon-orange), var(--matrix-green)); width: 0%; transition: width 0.3s ease; }
+        .cart-trigger { position: relative; cursor: pointer; display: flex; align-items: center; padding: 6px; border: 1px solid transparent; }
+        .cart-num { position: absolute; top: -2px; right: -2px; background: #e47911; color: white; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; }
 
-        /* AI COACH BOT */
-        .ai-core-intelligence {
-            background: #080812;
-            border: 1px solid #141230;
-            padding: 12px;
-            border-radius: 12px;
-            margin-top: 14px;
-            display: flex;
-            gap: 10px;
-        }
-        .ai-speech-bubble h4 { font-family: 'Orbitron', sans-serif; font-size: 11px; color: var(--neon-glow); margin-bottom: 2px; }
-        .ai-speech-bubble p { font-size: 11px; color: #cbd5e1; line-height: 1.4; }
+        .search-container { padding: 0 12px 10px; max-width: 1400px; margin: 0 auto; }
+        .search-wrap { display: flex; background: white; border-radius: 6px; overflow: hidden; height: 42px; border: 2px solid transparent; transition: 0.2s; }
+        .search-wrap:focus-within { border-color: var(--amz-gold); }
+        .search-wrap input { flex: 1; border: none; padding: 0 12px; outline: none; font-size: 15px; color: #333; width: 100%; }
+        .search-wrap button { background: var(--amz-orange); border: none; width: 48px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; }
 
-        /* MOBILE BOTTOM DOCK */
-        .navigation-dock {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 480px;
-            height: 65px;
-            background-color: rgba(6, 6, 10, 0.95);
-            backdrop-filter: blur(15px);
-            border-top: 1px solid var(--glass-border);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            z-index: 1000;
-            padding-bottom: env(safe-area-inset-bottom);
+        .nav-sub { background: var(--amz-dark); color: white; padding: 8px 12px; display: flex; gap: 15px; overflow-x: auto; white-space: nowrap; font-size: 13px; }
+        .nav-sub::-webkit-scrollbar { display: none; }
+        .nav-sub a { color: white; text-decoration: none; font-weight: 500; transition: 0.2s; }
+
+        /* BANNER & HERO SECTION */
+        .hero-banner { height: 150px; position: relative; overflow: hidden; background: #000; }
+        .banner-stage { display: flex; height: 100%; transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .slide { min-width: 100%; height: 100%; position: relative; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+        .slide-info { position: absolute; top: 20px; left: 20px; background: rgba(255,255,255,0.92); padding: 12px; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); max-width: 260px; }
+        .slide-info h2 { font-size: 16px; color: var(--amz-black); margin-bottom: 4px; }
+        .slide-info p { font-size: 11px; color: #444; line-height: 1.3; }
+
+        /* PRODUCT ARCHITECTURE (RESPONSIVE GRID) */
+        .container { max-width: 1400px; margin: 0 auto; padding: 12px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 10px; }
+        
+        .product-card { background: white; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; cursor: pointer; transition: 0.2s; border: 1px solid #ddd; position: relative; }
+        .product-card .img-box { width: 100%; height: 130px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; background: #f9f9f9; border-radius: 4px; }
+        .product-card img { max-width: 85%; max-height: 85%; object-fit: contain; }
+        .product-card h3 { font-size: 13px; font-weight: 400; height: 34px; overflow: hidden; margin-bottom: 6px; color: #007185; line-height: 1.3; }
+        .product-card .rating { color: #ffa41c; font-size: 11px; margin-bottom: 4px; }
+        .product-card .price { font-size: 18px; font-weight: bold; color: var(--text); margin-bottom: 6px; }
+        .product-card .vendor { font-size: 11px; color: #565959; margin-bottom: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        
+        .btn-add { background: var(--amz-btn); border: 1px solid #fcd200; padding: 8px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; width: 100%; }
+
+        /* PAGE ENGINE */
+        .page { display: none; }
+        .active-page { display: block; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* AUTH & OPEN MARKET INTERFACE */
+        .auth-container { max-width: 100%; width: 100%; margin: 15px auto; background: white; padding: 20px; border-radius: 8px; border: 1px solid #ddd; }
+        @media(min-width: 480px) { .auth-container { max-width: 400px; padding: 30px; } }
+        .auth-container h1 { font-size: 24px; font-weight: 400; margin-bottom: 20px; text-align: center; }
+        .field { margin-bottom: 15px; }
+        .field label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+        .field input, .field textarea, .field select { width: 100%; padding: 10px; border: 1px solid #777; border-radius: 4px; outline: none; font-size: 14px; -webkit-appearance: none; }
+        .field select { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23666'/></svg>"); background-repeat: no-repeat; background-position: right 10px center; background-size: 12px; }
+        .field input:focus, .field select:focus { border-color: #e77600; box-shadow: 0 0 4px rgba(231,118,0,0.3); }
+        .btn-amazon { background: var(--amz-gold); border: 1px solid #a88734; border-radius: 4px; padding: 12px; width: 100%; cursor: pointer; font-size: 14px; font-weight: 600; text-align: center; }
+
+        /* DASHBOARD RESPONSIVE LAYOUT */
+        .dashboard-header { background: white; padding: 15px; border-radius: 6px; border: 1px solid #ddd; margin-bottom: 15px; display: flex; flex-direction: column; gap: 10px; }
+        @media(min-width: 600px) { .dashboard-header { flex-direction: row; justify-content: space-between; align-items: center; } }
+        .stat-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px; }
+        @media(min-width: 480px) { .stat-grid { grid-template-columns: repeat(3, 1fr); } }
+        .stat-card { background: white; padding: 15px; border-radius: 6px; border: 1px solid #ddd; border-left: 4px solid var(--amz-orange); text-align: center; }
+        .stat-card h3 { font-size: 11px; color: #565959; text-transform: uppercase; }
+        .stat-card .value { font-size: 20px; font-weight: bold; margin-top: 5px; }
+        .stat-card .fee-text { font-size: 10px; color: var(--price); }
+
+        .dashboard-main-layout { display: flex; flex-direction: column; gap: 20px; }
+        @media(min-width: 768px) { .dashboard-main-layout { display: grid; grid-template-columns: 1fr 2fr; } }
+
+        /* CART & CHECKOUT SYSTEMS */
+        .cart-wrapper { background: white; border-radius: 6px; padding: 15px; border: 1px solid #ddd; }
+        .cart-item { display: flex; flex-direction: column; gap: 12px; padding: 15px 0; border-bottom: 1px solid #eee; position: relative; }
+        @media(min-width: 480px) { .cart-item { display: grid; grid-template-columns: 80px 1fr 100px; gap: 15px; } }
+        .cart-item img { width: 80px; height: 80px; object-fit: contain; margin: 0 auto; }
+        .cart-item-info h4 { font-size: 14px; color: var(--link); line-height: 1.3; }
+        .qty-control { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+        .qty-btn { width: 26px; height: 26px; border: 1px solid #ccc; background: #f0f2f2; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        .cart-price-side { text-align: right; font-size: 16px; font-weight: bold; color: var(--price); }
+
+        /* GEO BRANCH DESIGN */
+        .geo-delivery-box { background: #f3f7f7; border: 1px dashed #007185; border-radius: 6px; padding: 15px; margin: 15px 0; }
+        .geo-delivery-box h4 { font-size: 13px; margin-bottom: 10px; display: flex; align-items: center; gap: 5px; color: #004b56; }
+
+        /* BOTTOM MOBILE NAVIGATION */
+        .mobile-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #ddd; z-index: 10000; box-shadow: 0 -2px 10px rgba(0,0,0,0.08); }
+        .nav-item { text-align: center; font-size: 10px; color: #222; cursor: pointer; flex: 1; -webkit-user-select: none; user-select: none; }
+        .nav-item i { font-size: 20px; display: block; margin-bottom: 2px; font-style: normal; }
+        .nav-item.active { color: #e47911; font-weight: bold; }
+
+        /* MODAL DIALOGS */
+        #modal-blur { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 20000; display: none; align-items: center; justify-content: center; padding: 15px; backdrop-filter: blur(3px); }
+        .modal-card { background: white; padding: 25px 20px; border-radius: 10px; width: 100%; max-width: 360px; text-align: center; }
+
+        /* RESPONSIVE LAYOUT ADJUSTMENTS */
+        @media(max-width: 480px) {
+            .hero-banner { height: 130px; }
+            .slide-info { max-width: 200px; top: 15px; left: 15px; }
+            .slide-info h2 { font-size: 13px; }
+            .slide-info p { display: none; }
+            .product-card h3 { font-size: 12px; height: 32px; }
+            .product-card .price { font-size: 16px; }
         }
-        .dock-tab {
-            color: var(--text-cyber-muted);
-            cursor: pointer;
-            font-size: 9px;
-            font-weight: 800;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-            text-transform: uppercase;
-            flex: 1;
-        }
-        .dock-tab.active-tab { color: var(--neon-orange); }
-        .dock-tab svg { width: 18px; height: 18px; fill: currentColor; }
     </style>
 </head>
 <body>
 
-<div class="phone-frame">
-    <header>
-        <div class="sticker-container" id="header-sticker-left">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#ff5500" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
-        </div>
-        <h1>FITBURN // OS</h1>
-        <div class="sticker-container" id="header-sticker-right">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#ffaa00" stroke-width="2"><path d="M12 2v20M17 5H7"/></svg>
-        </div>
-    </header>
-
-    <div class="app-viewport">
-        <div id="view-onboarding" class="screen-view active-view">
-            <h2>Biometrik Matritsa</h2>
-            <p class="subtitle">Tizimni o'zingizga moslash uchun biometrik ko'rsatkichlarni kiriting.</p>
+<header>
+    <div class="header-main">
+        <a class="logo-box" onclick="app.showPage('home')">
+            <img class="logo-img" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon" style="height: 30px; object-fit: contain; vertical-align: middle;">
+            <span style="color: var(--amz-orange); font-size: 12px; vertical-align: super; font-weight: bold; margin-left: 2px;"></span>
+        </a>
+        
+        <div class="header-right">
+            <div class="user-nav" id="user-context" onclick="app.toggleProfileDropdown(event)">
+                Hello, <b id="user-display">Sign in</b>
+                <div class="profile-popup" id="profile-actions">
+                    <p id="full-email-display"></p>
+                    <button onclick="app.fullLogout(event)">Log Out Account</button>
+                </div>
+            </div>
             
-            <div class="cyber-card">
-                <div class="form-element">
-                    <label>Ism Familiya</label>
-                    <input type="text" id="user-fullname" placeholder="Ismingizni yozing...">
-                </div>
-                <div class="form-element">
-                    <label>Asosiy Maqsad</label>
-                    <select id="user-primary-goal">
-                        <option value="diet">Ekstremal Ozish & Yog' Eritish</option>
-                        <option value="bulk">Muskul Massasini Oshirish (Semirish)</option>
-                        <option value="power">Mutloq Kuch Yig'ish (Powerlifting)</option>
-                        <option value="health">Kardio Salomatlik & Tiklanish</option>
-                    </select>
-                </div>
-                <div style="display: flex; gap: 10px;">
-                    <div class="form-element" style="flex: 1;">
-                        <label>Vazn (kg)</label>
-                        <input type="number" id="user-mass" placeholder="85">
-                    </div>
-                    <div class="form-element" style="flex: 1;">
-                        <label>Maqsad (kg)</label>
-                        <input type="number" id="user-target-mass" placeholder="75">
-                    </div>
-                </div>
-                <div style="display: flex; gap: 10px;">
-                    <div class="form-element" style="flex: 1;">
-                        <label>Bo'y (sm)</label>
-                        <input type="number" id="user-growth" placeholder="178">
-                    </div>
-                    <div class="form-element" style="flex: 1;">
-                        <label>Yosh</label>
-                        <input type="number" id="user-years" placeholder="26">
-                    </div>
-                </div>
-                <div class="form-element">
-                    <label>Tibbiy Cheklov</label>
-                    <select id="user-medical-condition">
-                        <option value="none">Sog'lom (Muammo yo'q)</option>
-                        <option value="spine">Umurtqa churrasi / Bel og'rig'i</option>
-                        <option value="joints">Tizza bo'g'im muammolari</option>
-                        <option value="heart">Gipertoniya / Yurak bosimi</option>
-                    </select>
-                </div>
-                <button class="cyber-btn" onclick="initializeCyberPlatform()">Tizimni Ishga Tushirish</button>
+            <div class="cart-trigger" onclick="app.showPage('cart')">
+                <span class="cart-num" id="cart-count">0</span>
+                <span style="font-size:24px;">🛒</span>
             </div>
         </div>
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrap">
+            <input type="text" id="main-search" placeholder="Search product or store...">
+            <button onclick="app.search()">🔍</button>
+        </div>
+    </div>
+    
+    <div class="nav-sub">
+        <a href="#" onclick="app.filter('All')">All</a>
+        <a href="#" onclick="app.filter('Electronics')">Electronics</a>
+        <a href="#" onclick="app.filter('Fashion')">Fashion</a>
+        <a href="#" onclick="app.filter('Home')">Home</a>
+        <a href="#" onclick="app.filter('Beauty')">Beauty</a>
+        <a href="#" onclick="app.filter('Books')">Books</a>
+    </div>
+</header>
 
-        <div id="view-routine" class="screen-view">
-            <h2>Kun Tartibi Registri</h2>
-            <p class="subtitle">Kuningizni rejalashtiring. Istalgan vaqtda eski elementni butunlay o'chirib tashlang.</p>
+<div id="home-banner" class="hero-banner">
+    <div class="banner-stage" id="banner-stage">
+        <div class="slide">
+            <img src="https://m.media-amazon.com/images/I/71Ie3JXGfVL._SX3000_.jpg">
+            <div class="slide-info">
+                <h2>Electronics Deals</h2>
+                <p>Save up to 60% on smart devices this season.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://m.media-amazon.com/images/I/61zAjw4bqPL._SX3000_.jpg">
+            <div class="slide-info">
+                <h2>Summer Trends</h2>
+                <p>Explore hot styles from local market vendors.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <div id="page-home" class="page active-page">
+        <div class="grid" id="product-grid"></div>
+    </div>
+
+    <div id="page-auth" class="page">
+        <div class="auth-container">
+            <h1>Sign-In</h1>
+            <div class="field">
+                <label>Email or Username</label>
+                <input type="text" id="auth-email" placeholder="Enter username">
+                <p style="font-size:11px; color:#555; margin-top:5px;">* System will auto-append @gmail.com if missing</p>
+            </div>
+            <button class="btn-amazon" onclick="app.triggerOTP('login')">Continue</button>
+        </div>
+    </div>
+
+    <div id="page-sell" class="page">
+        <div class="auth-container">
+            <h1 style="color:var(--success);">Partnership Panel</h1>
+            <div id="market-reg-form">
+                <div class="field"><label>Business Email</label><input type="email" id="m-email" placeholder="youremail@mail.com"></div>
+                <div class="field"><label>Store / Market Name</label><input type="text" id="m-name" placeholder="Apple Premium Store"></div>
+                <button class="btn-amazon" style="background:var(--amz-btn)" onclick="app.triggerOTP('market')">Open My Store</button>
+            </div>
             
-            <div class="cyber-card">
-                <div style="display: flex; gap: 8px; margin-bottom: 10px;">
-                    <input type="text" id="routine-time-window" placeholder="07:30" style="flex: 1;">
-                    <input type="text" id="routine-action-desc" placeholder="Yugurish va nonushta" style="flex: 2.5;">
-                </div>
-                <button class="cyber-btn" onclick="registerRoutineNode()">+ Yangi Reja Qo'shish</button>
+            <div id="credentials-display" style="display:none; margin-top:20px; background:#f4f9f9; padding:15px; border:2px dashed var(--success); border-radius:6px;">
+                <h3 style="color:var(--success); font-size:14px; margin-bottom:10px;">✓ Store Created!</h3>
+                <p style="font-size:12px; margin-bottom:10px;">Keep these private parameters secured:</p>
+                <p style="font-size:13px;">Login ID: <b id="gen-login" style="color:var(--price)"></b></p>
+                <p style="font-size:13px;">Password: <b id="gen-pass" style="color:var(--price)"></b></p>
+                <button class="btn-amazon" style="margin-top:15px;" onclick="app.showPage('open-market')">Login Terminal</button>
             </div>
+        </div>
+    </div>
 
-            <div id="routine-nodes-anchor"></div>
+    <div id="page-open-market" class="page">
+        <div id="market-login-area">
+            <div class="auth-container">
+                <h1>Market Gateway</h1>
+                <div class="field"><label>Market ID</label><input type="text" id="gate-id"></div>
+                <div class="field"><label>Password</label><input type="password" id="gate-pass"></div>
+                <button class="btn-amazon" onclick="app.accessDashboard()">Authorization</button>
+            </div>
         </div>
 
-        <div id="view-missions" class="screen-view">
-            <h2>AI Missiyalar (55 Variant)</h2>
-            <p class="subtitle">Har bir yo'nalish bo'yicha professional 20 tadan mashqlar tizimi.</p>
-
-            <div class="form-element">
-                <label>Faol Missiyani Tanlang</label>
-                <select id="master-mission-index" onchange="recompileMissionViewer()"></select>
+        <div id="market-admin-area" style="display:none;">
+            <div class="dashboard-header">
+                <div>
+                    <h2 id="admin-shop-name" style="font-size:18px;">Store Manager</h2>
+                    <p style="font-size:11px; color:var(--success);">12% Transaction Fee Deducted on Payouts</p>
+                </div>
+                <button class="btn-amazon" style="width:auto; padding:6px 15px; background:#f0f2f2; border:1px solid #ccc;" onclick="app.logoutMarket()">Exit Terminal</button>
             </div>
 
-            <div class="progress-hud">
-                <div class="progress-hud-labels">
-                    <span>Bajarilish Ko'rsatkichi</span>
-                    <span id="hud-percentage-text">0%</span>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <h3>Gross Trade</h3>
+                    <div class="value" id="stat-gross">$0.00</div>
                 </div>
-                <div class="progress-hud-bar">
-                    <div class="progress-hud-fill" id="hud-bar-core"></div>
+                <div class="stat-card">
+                    <h3>Net Balance</h3>
+                    <div class="value" id="stat-net" style="color:var(--success);">$0.00</div>
+                    <p class="fee-text" id="stat-fees">Fees: $0.00</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Orders</h3>
+                    <div class="value" id="stat-orders">0</div>
                 </div>
             </div>
 
-            <div id="mission-drills-anchor"></div>
+            <div class="dashboard-main-layout">
+                <div class="auth-container" style="margin:0; padding:15px;">
+                    <h3 style="font-size:14px; margin-bottom:10px;">Publish Product</h3>
+                    <div class="field"><label>Title</label><input type="text" id="p-title"></div>
+                    <div class="field"><label>Category</label>
+                        <select id="p-cat">
+                            <option>Electronics</option><option>Fashion</option><option>Home</option><option>Beauty</option><option>Books</option>
+                        </select>
+                    </div>
+                    <div class="field"><label>Price ($)</label><input type="number" id="p-price"></div>
+                    <div class="field"><label>Image URL</label><input type="text" id="p-img"></div>
+                    <button class="btn-amazon" style="background:var(--amz-orange)" onclick="app.postProduct()">Deploy Product</button>
+                </div>
 
-            <div class="ai-core-intelligence">
-                <div style="font-size: 20px;">🤖</div>
-                <div class="ai-speech-bubble">
-                    <h4>FitBurn Coach</h4>
-                    <p id="ai-coach-voice-output">Yuklanmoqda...</p>
+                <div>
+                    <h3 style="margin-bottom:10px; font-size:15px;">Store Inventory</h3>
+                    <div id="my-live-products" class="grid" style="grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <nav class="navigation-dock" id="app-navigation-dock" style="display: none;">
-        <div class="dock-tab active-tab" id="tab-routine" onclick="executeNavigation('view-routine')">
-            <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-            Rejalar
+    <div id="page-cart" class="page">
+        <div class="cart-wrapper">
+            <h2 style="font-size:18px; margin-bottom:15px;">Your Shopping Basket</h2>
+            <div id="cart-items-list"></div>
+            
+            <div id="checkout-section" style="display:none;">
+                <div class="geo-delivery-box">
+                    <h4>📍 Select 
+                        Amazon.uz Distribution Branch Office</h4>
+                    <div style="display:grid; grid-template-columns: 1fr; gap:10px; margin-top:10px;">
+                        <div class="field" style="margin:0;">
+                            <label style="font-size:11px;">Region / Viloyat</label>
+                            <select id="geo-region" onchange="app.handleRegionChange()">
+                                <option value="">-- Choose Region --</option>
+                                <option value="Tashkent">Toshkent barcha filiallar</option>
+                                <option value="Samarkand">Samarqand barcha filiallar</option>
+                                <option value="Fergana">Farg'ona barcha filiallar</option>
+                                <option value="Bukhara">Buxoro barcha filiallar</option>
+                            </select>
+                        </div>
+                        <div class="field" style="margin:0;">
+                            <label style="font-size:11px;">District / Tuman</label>
+                            <select id="geo-district" disabled onchange="app.handleDistrictChange()">
+                                <option value="">-- Choose District --</option>
+                            </select>
+                        </div>
+                        <div class="field" style="margin:0;">
+                            <label style="font-size:11px;">Available Official Branch / Filial</label>
+                            <select id="geo-branch" disabled>
+                                <option value="">-- Choose Branch --</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; margin:15px 0;">
+                    <h3>Total:</h3>
+                    <h2 id="total-price-display" style="color:var(--price); font-size:22px;">$0.00</h2>
+                </div>
+
+                <div style="background:#fff; border:1px solid #ccc; padding:15px; border-radius:6px; margin-top:15px;">
+                    <div class="field">
+                        <label>Card Number (16 Digits)</label>
+                        <input type="text" id="card-num" maxlength="16" placeholder="8600 0000 0000 0000">
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <div class="field" style="flex:1;"><label>Expiry (MMYY)</label><input type="text" id="card-mmyy" maxlength="4" placeholder="1228"></div>
+                        <div class="field" style="flex:1;"><label>CVV</label><input type="password" id="card-cvv" maxlength="3" placeholder="***"></div>
+                    </div>
+                    <button class="btn-amazon" style="background:var(--amz-btn); margin-top:10px;" onclick="app.triggerOTP('payment')">Secure Checkout</button>
+                </div>
+            </div>
         </div>
-        <div class="dock-tab" id="tab-missions" onclick="executeNavigation('view-missions')">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
-            55 Missiya
-        </div>
-    </nav>
+    </div>
+
 </div>
 
+<div id="modal-blur">
+    <div class="modal-card">
+        <h2 id="otp-title" style="font-size:18px;">Verification Required</h2>
+        <p id="otp-desc" style="font-size:12px; color:#555; margin:10px 0;">A 4-digit token has been requested securely.</p>
+        <input type="text" id="otp-code" maxlength="4" placeholder="0000" style="font-size:28px; width:140px; text-align:center; padding:8px; letter-spacing:6px; margin:15px 0; border:2px solid #ccc; border-radius:6px;">
+        <button class="btn-amazon" onclick="app.verifyOTP()">Validate Credentials</button>
+        <p style="font-size:11px; margin-top:12px; color:gray;"> <b></b></p>
+    </div>
+</div>
+
+<nav class="mobile-nav">
+    <div class="nav-item active" id="btn-nav-home" onclick="app.showPage('home')"><i></i>HOME</div>
+    <div class="nav-item" id="btn-nav-sell" onclick="app.showPage('sell')"><i></i>Sell</div>
+    <div class="nav-item" id="btn-nav-market" onclick="app.showPage('open-market')"><i></i>Market</div>
+    <div class="nav-item" id="btn-nav-auth" onclick="app.showPage('auth')"><i></i>Profile</div>
+</nav>
+
 <script>
-    // ENGINE ARCHITECTURE MATRIX
-    let globalUser = JSON.parse(localStorage.getItem('fbu_user')) || null;
-    let globalRoutine = JSON.parse(localStorage.getItem('fbu_routine')) || [
-        { time: "07:00", desc: "Uyg'onish va energetik dush", completed: false },
-        { time: "08:00", desc: "Kunlik birinchi mashg'ulot", completed: false }
-    ];
-    let globalMissionState = JSON.parse(localStorage.getItem('fbu_mission_state')) || {};
-
-    // IMMUTABLE MATRIX - 55 DISTINCT MISSIONS WITH 20 SPECIFIC DRILLS (TOTAL 1100 ITEMS)
-    const masterMissionMatrix = [
-        { id: 1, title: "1. Jadal Kardio va Lipoliz Portlashi", type: "diet", drills: [
-            "Tredmilda Intervalli Sprint (30s yugurish / 30s yurish)", "Burpi Portlash Mashqi (Maksimal intensivlikda)", "Alpinist (Mountain Climbers) tezkor harakat", "Arqonda Yuqori Tezlikda Sakrash (Double-Unders)",
-            "Gantellar bilan Thruster (Chuqur o'tirib tepaga ko'tarish)", "Planka Jek (Plank Jacks sakrash bilan)", "Baland Tizzalar bilan Joyida Sprint", "Velosiped Ko'rinishidagi Intensiv Press",
-            "Suvchilar Plankasi (Qo'llarni ketma-ket oldinga cho'zish)", "Yondan Qadam Tashlash (Skater Bounds)", "Gantel bilan Chuqur Goblet Squats", "Boks Soya Urushi (Shadow Boxing - og'irlik bilan)",
-            "Yarim Cho'kkalab Portlovchi Sakrash", "Gorizontal Otjimanie (Klassik Push-ups)", "Zinapoyaga Yugurib Chiqish va tushish", "Yondagi Statik Planka (O'ng tomon)",
-            "Oyoqlarni Yotgan Holda To'g'ri Ko'tarish", "Kettlebell Sving Mashqi (Chanoq portlashi)", "Aylanma Kardio Yurish (Tezkor tempda)", "To'liq Tana Muskullarini Cho'zilishi (Stretching)"
-        ]},
-        { id: 2, title: "2. Qorin va Bel Qismidagi Yog'larni Bloklash", type: "diet", drills: [
-            "V-Simmon Press Burilishlari", "Planka Korpusni Oldinga-Orqaga Surish", "Oyoqlarni Qaychi Shaklida Gorizontal Pirillatish", "Yotib Tizzalarni Ko'krakka Jadal Tortish",
-            "Gantel yordamida Ruscha Burilish (Russian Twists)", "Ab-Roller (Rolik yordamida qorinni cho'zish)", "Turnikda Osilib Oyoqlarni Tizzadan Ko'tarish", "Gantelni Bir Qo'lda Yonga Egilib Tortish",
-            "Qorin bilan Yotib Oyoq-Qo'llarni Birga Ko'tarish", "Qisqich Simmon Qorin Bukilishi (V-Ups)", "O'tirib Qoringa Tixza Urish", "Planka Holatidan Qo'llarga Ko'tarilish",
-            "Polda O'tirib Oyoqlar bilan Aylana Chizish", "Tirsak-Tizza Diagonal Tekizish Crunches", "Yon tomonga Haqiqiy Bukilish (Oblique Crunches)", "Gantel bilan Cho'kkalash va Dinamik Burilish",
-            "Oyoqlarni Vertikal Holatda Yuqoriga Sakratish", "Statik Qorin Vakuum Mashqi (Och qoringa)", "Tredmilda 12 daraja Nishablikda Tezkor Yurish", "Kobra Pozasida Qorin Muskullarini Cho'zish"
-        ]},
-        { id: 3, title: "3. Son va Dumg'aza Sellyulit Tizimi", type: "diet", drills: [
-            "Keng Plie Squats (Oyoq uchlari yonga)", "Gantellar bilan Revers Lunges (Orqaga qadam)", "Yonga Qadam Tashlash (Fitness Rezinka bilan)", "Glute Bridge (Yotgan holda chanoq ko'tarish)",
-            "Donkey Kicks (Orqaga oyoq tepish)", "Yotgan Holda Oyoqni Yonga Maksimal Ko'tarish", "Bolgarcha Split Squats (Orqa oyoq stulda)", "Shtanga bilan Chuqur Klassik Squats",
-            "Oyoqlarni Trenajorda Yonga Kuch bilan Ochish", "Gantel bilan Rumyncha Tyaga (To'g'ri oyoqda)", "Sakrash bilan Bajariladigan Air Squats", "Gantellar bilan Diagonal Lunges (Orqaga kesishuvchi)",
-            "Platformaga Bir Oyoqlab Ketma-ket Chiqish", "Oyoqni Orqaga Krossover Simida Tortish", "Statik Devorga Suyanish (Wall Sit holding)", "Oyoqlarni Trenajorda O'tirib Bukish",
-            "Yengil Tempda Tizzani Baland Ko'tarmay Yugurish", "Glute Bridge (Bitta oyoqni osmonga ko'tarib)", "Gantel bilan Qora Chayka (Egilgan holda oyoq yonga)", "Katta Son va Chanoq Muskullari Cho'zilishi"
-        ]},
-        { id: 4, title: "4. Uglevod Blokadasi & Tezkor Metabolizm", type: "diet", drills: [
-            "Tabata Protokoli bo'yicha Maksimal Burpi", "Gantel bilan Snatch (Yerdan tepaga portlash)", "Krossfit uslubidagi Otjimanie (Qo'llarni poldan uzib)", "Medbolni Polga Butun Kuch bilan Urish",
-            "Rezinka bilan Gorizontal Keng Tortish", "Aylana bo'ylab Sakrashlar (Agility Drills)", "Zinasimon Jadal Yugurish (Fast Feet)", "Gantellar bilan Kombinatsiyalangan Lunges Walk",
-            "Joydan Turib Balandlikka Sakrash", "Planka Tirsakda Oldinga va Orqaga Surilish", "Gantel bilan Bir Qo'llab Tozalash (Clean)", "Otjimanie + Har safar Tizzani Ko'krakka Urish",
-            "Skorostnoy Arqon Sakrash (Maksimal Tezlik)", "Qaychi Sakrashlar (Scissors Jumps)", "Medbolni Ko'krakda Ushlab Squats", "Velosiped Simmon Tezkor Press (30 soniya)",
-            "Gantel bilan Fermer Yurishi (Og'ir yuk bilan)", "Gantellar bilan Yelkaga Maxovlar (Yonga ochish)", "Eshkak Eshish Trenajori (Rowing Machine 500m)", "Ko'krak Qafasi va O'pkani Kengaytirish Cho'zilishi"
-        ]},
-        { id: 5, title: "5. HIIT Kardio Master Dasturi", type: "diet", drills: [
-            "High-Knee Sprint (Baland tizza bilan yugurish)", "Burpee Tuck Jumps (Burpidan keyin tizzani qoringa urish)", "Mountain Climbers Jadal Tempda", "Jumping Lunges (Sakrab qadam tashlash)",
-            "Push-up to Jack (Otjimanie va oyoqni ochish)", "Bear Crawl (Ayiq yurishi polda)", "Crab Walk (Qisqichbaqa yurishi)", "Skater Jumps (Yon tomonga sakrashlar)",
-            "Star Jumps (Yulduzcha bo'lib sakrash)", "Plank Shoulder Taps (Yelkaga urish)", "Dumbbell Renegade Row (Plankada og'irlik tortish)", "Medbol Slams Portlash",
-            "Kettlebell American Swings (Gira uchirish)", "Zina Boylab Yuqoriga Sprint", "Shadow Boxing Jadal Raund", "Side Plank Crunch (Yondagi press)",
-            "Leg Raises Tezkor Ko'tarish", "Air Squats Maksimal Tempda", "Assault Bike (Velotrenajor sprint)", "Full Body Release Cho'zilish"
-        ]},
-        { id: 6, title: "6. Detoks Kardio (Yengil Tana Rejimi)", type: "diet", drills: [
-            "Yengil Kardio Yurish Tredmilda", "Air Squats Sekin va Kontrolli", "Qo'llarni Keng Aylantirish", "Yengil Bo'g'inlar Cho'zilishi",
-            "Devorga Tayanib Otjimanie Qilish", "Glute Bridge Vaznsiz O'rtacha", "Qorin Vakuum Mashqi (3 set)", "Yotgan Holda Oyoq Aylantirish",
-            "Yelkalar Aylanishi Revers", "Mushuk Pozasi Cho'zilishi (Cat-Cow)", "Yengil Velotrenajor (Qarshiliksiz)", "Yonboshlab Oyoq Ko'tarish",
-            "Qo'llarni Yonga Cho'zish Statika", "Chuqur Diafragma Nafas Mashqlari", "Yengil Chayqalishlar (Kovrikda)", "Tana Korpusini Buralishi",
-            "Oyoq Uchida Turish (Boldir uchun)", "Kobra Holatida Belni Bo'shashtirish", "Yengil Piyoda Yurish Ochiq Havoda", "Meditatsiya va Nafasni Tiklash"
-        ]},
-        { id: 7, title: "7. Ertalabki Metobolik Portlash", type: "diet", drills: [
-            "Uyg'onish Squats Vaznsiz", "Jumping Jacks O'rtacha Tempda", "Arm Circles (Qo'llarni aylantirish)", "Incline Pushups (Stulga tayanib)",
-            "Bird-Dog Mashqi (Muvozanat)", "Glute Bridge Statik ushlab turish", "Plank Statik 30 soniya", "Knee Strikes (Tizza urishlari)",
-            "Butt Kicks (Oyoqni orqaga urish)", "Side Lunges (Yonga qadam)", "Abdominal Crunches (Yengil press)", "Superman Mashqi (Bel uchun)",
-            "Calf Raises Bodyweight", "Chest Openers (Ko'krak ochish)", "Triceps Dips Stulda", "Ankle Circles (To'piq aylanishi)",
-            "Tezkor Qadamlar Joyida", "Yonbosh Mushaklar Cho'zilishi", "Chaqaloq Pozasi (Child's Pose)", "Chuqur Nafas Mashqi (3 marta)"
-        ]},
-        { id: 8, title: "8. Uglevodlarni Yoqish (Glyukogen Depo)", type: "diet", drills: [
-            "Thrusters Gantel bilan Og'ir", "Burpee Jadal Davomli", "Shtanga bilan Orqada Squat", "Turnikda To'g'ri Tortilish",
-            "Pushups Jadal Tempda", "Deadlift O'rtacha Og'irlikda", "Kettlebell Swings (Gira uchirish)", "Leg Press Trenajorda",
-            "Lat Pulldown Blokni Ko'krakka", "Seated Row Blokni Belga", "Overhead Press (Yelkaga press)", "Dumbbell Lunge Walk",
-            "Hanging Leg Raise (Osilib oyoq ko'tarish)", "Plank Reach (Plankada qo'l cho'zish)", "Hammer Curls (Biceps)", "Skull Crushers (Triceps)",
-            "Calf Raises Og'irlik bilan", "Russian Twists Og'ir Medbol bilan", "Rowing Machine Sprint 300m", "To'liq Mushaklar Cho'zilishi"
-        ]},
-        { id: 9, title: "9. Tungi Kaloriya Destroyer (Kechki)", type: "diet", drills: [
-            "Yengil Tredmil Yurish", "Air Squats Kontrolli Sekin", "Wall Pushups (Devorga)", "Glute Bridge Sekin",
-            "Dead Bug Mashqi (Nafas bilan)", "Plank Touch (Yelkaga asta teginish)", "Side Plank Izometrik", "Bird-Dog (Sekin fiksatsiya)",
-            "Cat-Cow Stretch Smooth", "Seated Forward Bend", "Childs Pose Relaks", "Legs Up Wall (Oyoqni devorga qo'yish)",
-            "Spinal Twist Kovrikda", "Butterfly Stretch (Kapalak)", "Shoulder Stretch (Yelka cho'zish)", "Wrist Rollers (Bilak)",
-            "Neck Mobility (Bo'yin sekin)", "Deep Breathing (Diafragma)", "Progressive Muscle Relaxation", "Sleep Prep Stretch (Uxlatuvchi cho'zilish)"
-        ]},
-        { id: 10, title: "10. Yurak Chidamliligi (Kardio Vaskulyar)", type: "diet", drills: [
-            "Steady State Jogging (Yugurish)", "Cycling O'rtacha Qarshilikda", "Elliptical Trainer (10 daqiqa)", "Rowing Continuous (Eshkak esish)",
-            "Stair Climber Kontrolli Pace", "Jumping Jacks Kontrolli", "Step Aerobics Harakatlari", "Shadow Boxing Barqaror Temp",
-            "Mountain Climbers O'rtacha Sekin", "Burpee Without Jump (Sakrashsiz)", "Air Squats To'xtovsiz", "Walking Lunges (Gantelsiz)",
-            "Plank Hold Dynamic (Keng-tor)", "High Knees Low Impact", "Butt Kicks Barqaror", "Skipping Light (Arqonsiz sakrash)",
-            "Speed Bag Punching (Tezkor nok)", "Side Shuffles (Yonga qadamlar)", "Fast Walking Tredmilda", "Cool Down Stretch (Yurakni tinchlantirish)"
-        ]},
-        { id: 11, title: "11. Keto-Fokus (Kam Uglevodli Shok)", type: "diet", drills: [
-            "Heavy Squat Low Reps (Og'ir squat)", "Deadlift Low Reps (Og'ir tortish)", "Bench Press Low Reps", "Overhead Press Shtanga",
-            "Barbell Row (Belga tortish)", "Weighted Dips (Brus vazn bilan)", "Weighted Pullups (Turnik vazn bilan)", "Romanian Deadlift Heavy",
-            "Incline Dumbbell Press", "Dumbbell Lateral Raise", "Rear Delt Fly (Orqa elka)", "Barbell Bicep Curl",
-            "Triceps Pushdown Blokda", "Hanging Crunch", "Plank Weighted (Og'irlik bilan)", "Calf Raises Heavy",
-            "Farmers Walk Heavy", "Leg Press Heavy Weight", "Close Grip Bench Press", "Deep Muscle Foam Roller"
-        ]},
-        { id: 12, title: "12. Shakar Kechishi (Anti-Sugar Engine)", type: "diet", drills: [
-            "Sprint Intervalli Tredmilda", "Kettlebell Clean and Press", "Medbol Choti Urish Portlash", "Burpee over Bar (Shtangadan sakrab)",
-            "Thrusters Jadal Tempda", "Box Jumps (Qutiga sakrash)", "Battle Ropes (Og'ir arqonlar)", "Pullups Dynamic (Tezkor turnik)",
-            "Toes to Bar (Oyoqni turnikka)", "Push Jumps (Shtanga itarish)", "Dumbbell Snatch Alternating", "Lunges Jump (Sakrab qadam)",
-            "Plank Dynamic Walk", "Bicycle Crunch Fast", "Russian Twist Heavy Gantel", "Superman Hold Statika",
-            "Leg Press Explosive", "Sled Push (Chanalarni itarish)", "Rowing Machine Jadal Sprint", "Full Stretch Reset (Qayta yuklash)"
-        ]},
-        { id: 13, title: "13. Fasting Kardio (Och Qoringa Lipoliz)", type: "diet", drills: [
-            "Low Intensity Walking (Yurish)", "Steady Cycling (Barqaror velo)", "Elliptical Easy Rejim", "Mobility Drills (Bo'g'inlar)",
-            "Bodyweight Squats Sekin", "Bird-Dog Balans", "Dead Bug Kontrol", "Glute Bridge Korreksiya",
-            "Wall Sit Light (Devorga)", "Calf Raises Bodyweight", "Arm Warmups", "Torso Twists (Burilishlar)",
-            "Cat-Cow (Uf tortish)", "Childs Pose (Tinchlanish)", "Light Rowing", "Shoulder Rolls",
-            "Gentle Stretching", "Hamstring Stretch", "Quad Stretch", "Hydration Breathing (Suv balansi nafas)"
-        ]},
-        { id: 14, title: "14. Ofis Kaloriya Nazorati", type: "diet", drills: [
-            "Chair Squats (Stulga o'tirib)", "Desk Pushups (Stolga tayanib)", "Seated Leg Extensions Ofis", "Standing Calf Raises (Boldir)",
-            "Desk Planka (Stol ustida)", "Seated Twists (Stulda burilish)", "Shoulder Shrugs Ofis", "Neck Stretches (Bo'yin)",
-            "Wrist Mobility (Bilaklar)", "Ankle Rolls Seated", "Doorway Chest Stretch", "Standing Side Bend",
-            "Seated Hamstring Stretch", "High Knees Standing Sekin", "Butt Kicks Standing Sekin", "Wall Sit Ofis Rejim",
-            "Arm Circles Standing", "Deep Diaphragm Breathing", "Piyoda Yurish Ofis Atrofida", "Spine Decompression (Umurtqa yozish)"
-        ]},
-        { id: 15, title: "15. Plyometrik Yog' Destroyer", type: "diet", drills: [
-            "Box Jumps High (Baland qutiga)", "Tuck Jumps (Tizzani ko'krakka)", "Broad Jumps (Uzoqqa sakrash)", "Lateral Bounds (Yonga sakrash)",
-            "Depth Jumps (Plitkadan pastga)", "Squat Jumps Portlash", "Lunge Jumps (Navbatma-navbat)", "Clapping Pushups (Karsak bilan)",
-            "Burpee Box Jump Kombinatsiya", "Single Leg Hops (Bitta oyoqda)", "Power Skips (Kuchli qadamlar)", "Ankle Hops (To'piqda sakrash)",
-            "Medicine Ball Overhead Throw", "Plank Jacks Explosive", "Mountain Climbers Fast Sprint", "Double Under Jump Rope",
-            "Slam Ball (To'pni urish)", "Speed Skating Jumps", "Pop Squats Tezkor", "Reactive Stretching (Reaktiv cho'zilish)"
-        ]},
-        { id: 16, title: "16. Gipertrofiya: Sparta Ko'krak Mushaklari", type: "bulk", drills: [
-            "Shtanga bilan Gorizontal Bench Press", "Gantellar bilan Nishablikdagi Press", "Brusda Og'irlik bilan Otjimanie", "Krossoverda Qo'llarni Uchrashtirish",
-            "Polda Otjimanie (Keng Qo'lda)", "Gantellar bilan Gorizontal Fly (Ochish)", "Shtanga bilan Tor Qo'lda Press", "Smit Trenajorida Incline Press",
-            "Pullover Gantel bilan", "Krossover Pastdan Yuqoriga", "Otjimanie Plitka ustida", "Gantel bilan Svend Press",
-            "Gantellarni Eksponentsial tushirish", "Krossover O'tacha Balandlikda", "Otjimanie Brusda Korpus Oldinga", "Shtanga Incline Kam Reps",
-            "Gantellar Gorizontal Drop-set", "Otjimanie Tizrada Maksimal", "Krossover Yuqoridan Pastga", "Ko'krak Mushaklari Statik Cho'zilishi"
-        ]},
-        { id: 17, title: "17. Temir Orqa Korpus (Keng Orqa)", type: "bulk", drills: [
-            "Turnikda Keng Qo'llab Tortilish", "Deadlift (Klassik Shtanga tortish)", "Shtangani Egilgan Holda Belga Tortish", "Blokni O'tirib Belga Tortish",
-            "Gantelni Bir Qo'llab Belga Tortish", "T-Grif Trenajorida Tortish", "Giperekstenziya (Og'irlik bilan)", "Blokni Ko'krakka Keng Tortish",
-            "Turnikda Parallel Qo'llab Tortilish", "Gantellarni Egilgan Holda Yonga Ochish", "Pullover Blok Simi bilan", "Shtanga Gud-Morning Mashqi",
-            "Blokni Iyakka To'g'ri Tortish", "Smitt Mashqida Belga Tortish", "Turnik teskari ushlam", "Gantel bilan Shrugs (Elka qisish)",
-            "Shtanga Shrugs Orqada", "Giperekstenziya Statik Usulda", "Blok Keng Orqa Drop", "Uchinchi Umurtqa Relaksi"
-        ]},
-        { id: 18, title: "18. Titan Oyoqlar (Kvadriceps va Biceps)", type: "bulk", drills: [
-            "Shtanga bilan Orqada Squat", "Leg Press (Trenajorda Oyoq Pressi)", "Gantellar bilan Bolgarcha O'tirish", "Oyoqlarni Trenajorda To'g'rilash",
-            "Oyoqlarni Yotgan Holda Bukish", "Shtanga bilan Oldinda Squat (Front)", "Xak-Squat Trenajorida O'tirish", "Gantellar bilan Yurib Lunges",
-            "Rumyncha Shtanga Tortish", "Oyoq Uchlarida Turish (Calf Heavy)", "Goblet Squat Gantel bilan", "Oyoq Uchlarida O'tirib Turish",
-            "Smit Trenajorida Oyoqni Orqaga Otish", "Rezinka bilan chuqur Squat", "Oyoq Pressi Bitta Oyoqlab", "Gantel bilan Deadlift",
-            "Oyoq To'g'rilash Drop-set", "Oyoq Bukish Drop-set", "Oyoq Uchlari Heavy Drop", "Katta Son Fastsiyalari Cho'zilishi"
-        ]},
-        { id: 19, title: "19. 3D Yelkalar (Deltoid Reonstruktsiya)", type: "bulk", drills: [
-            "Armiya Pressi (Shtanga Tik Turib)", "Gantellarni O'tirgan Holda Tepaga Press", "Gantellarni Yonga Ochish (Mashovlar)", "Gantellarni Oldinga Ko'tarish",
-            "Egilgan Holda Gantel Yonga Ochish", "Shtangani Iyakka Tortish (Keng Qo'lda)", "Krossoverda Yonga Elka Tortish", "Smit Trenajorida Overhead Press",
-            "Arnold Press Gantellar bilan", "Krossover Orqa Delta uchun", "Gantel Yonga Ochish Drop-set", "Shtanga Iyakka Drop",
-            "Gantel Oldinga Drop", "Bus rulini burish (Gantel bilan)", "Krossover Bir Qo'llab Yonga", "Orqa Delta Pec-Deck",
-            "Gantellar O'tirib Press Drop", "Yelkalar Oldi Statika", "Krossover Orqa Delta Keng", "Yelka Bo'g'imlari Dinamik Cho'zilishi"
-        ]},
-        { id: 20, title: "20. Anabolik Armiya (Qo'l Muskullari)", type: "bulk", drills: [
-            "Biceps uchun Shtanga Ko'tarish (To'g'ri Grif)", "Triceps Frantsuzcha Press (EZ Grif)", "Biceps Gantel Skott Skameykasida", "Triceps Blokda Arqon bilan Pushdown",
-            "Gantellar Molot (Hammer Curls)", "Brusda Otjimanie Tor Qo'lda", "Biceps Gantel bilan Suprotsiya", "Teskari Otjimanie Stuldan",
-            "Biceps uchun Teskari Ushlamda Shtanga", "Triceps Gantel Bosh Orqasidan", "Krossover Biceps Konsetratsiya", "Triceps Bir Qo'llab Blokda",
-            "Biceps Molot Drop-set", "Triceps Frantsuzcha Drop", "Shtanga Biceps Drop", "Triceps Arqon Pushdown Drop",
-            "Krossover Biceps Double", "Tor Qo'llab Otjimanie Polda", "Biceps Skott Drop", "Qo'l Mushaklari To'liq Cho'zilishi"
-        ]},
-        { id: 21, title: "21. Mass-Gain Alfa (Vazn Qo'shish)", type: "bulk", drills: [
-            "Heavy Barbell Squat", "Klassik Deadlift Og'ir", "Bench Press Heavy", "Overhead Press Heavy",
-            "Barbell Rows Heavy", "Weighted Pullups", "Weighted Dips", "Leg Press High Weight",
-            "Romanian Deadlift", "Dumbbell Incline Press", "Close Grip Bench Press", "Barbell Cheat Curls",
-            "EZ Bar Skull Crushers", "Seated Cable Rows", "Dumbbell Shoulder Press", "Calf Raises Standing Heavy",
-            "Hanging Leg Raises", "Farmers Walk Heavy", "Cable Pushdowns Heavy", "Foam Roller Full Body Matrix"
-        ]},
-        { id: 22, title: "22. Estetik V-Shakli (Keng Yelka / Tor Bel)", type: "bulk", drills: [
-            "Wide Grip Pullups (Keng turnik)", "Lat Pulldown Behind Neck", "Straight Arm Pulldown", "Barbell Row Underhand",
-            "One Arm Dumbbell Row", "Seated Row Wide Grip", "T-Bar Row Wide", "Rack Pulls (Yarim o'lik tortish)",
-            "Dumbbell Lateral Raise Heavy", "Cable Lateral Raise", "Rear Delt Dumbbell Fly", "Machine Rear Delt",
-            "Hanging Straight Leg Raise", "Plank Dynamic Side", "Vacuum Exercise Hold", "Dumbbell Shrugs Control",
-            "Pullups Medium Grip", "Lat Pulldown V-Bar", "Face Pulls Krossover", "Latissimus Dorsi Stretch"
-        ]},
-        { id: 23, title: "23. Trapetsiya va Bo'yin Monstri", type: "bulk", drills: [
-            "Barbell Shrugs Front", "Barbell Shrugs Behind Back", "Dumbbell Shrugs Seated", "Smith Machine Shrugs",
-            "Cable Shrugs Heavy", "Upright Row Close Grip", "Face Pulls High Angle", "Dumbbell Lying Rear Delt Row",
-            "Prone Neck Extension", "Prone Neck Flexion", "Lateral Neck Resistance", "Clean Pulls (Shtanga ko'tarish)",
-            "Heavy Deadlift Hold", "Farmers Walk Extended", "Overhead Carry Heavy", "Snatch Grip Shrugs",
-            "Dumbbell Shrugs Rotation", "Krossover Trapetsiya Fly", "Barbell Shrugs Drop-set", "Neck Trapezius Release"
-        ]},
-        { id: 24, title: "24. Po'tal Bilaklar (Fermer Panjasi)", type: "bulk", drills: [
-            "Barbell Wrist Curl (Bilak bukish)", "Barbell Reverse Wrist Curl", "Dumbbell Wrist Curl Seated", "Dumbbell Reverse Wrist Curl",
-            "Behind Back Barbell Wrist Curl", "Wrist Roller Device (Rolik)", "Reverse Grip Barbell Curl", "Hammer Curls Slow",
-            "Farmers Walk Plate Pinch", "Deadlift Static Hold", "Towel Pullups (Sochiqda turnik)", "Hand Gripper Maximum Squeeze",
-            "Finger Walk on Weight Plates", "Dumbbell Rotation Wrist", "Cable Wrist Curls", "Reverse Grip Cable Curl",
-            "Static Hang on Bar (Turnikda osilish)", "Dumbbell Farmers Walk Heavy", "Barbell Wrist Curl Drop", "Forearm Flexor Stretch"
-        ]},
-        { id: 25, title: "25. Ko'krak Ichki va Tashqi Chiziqlari", type: "bulk", drills: [
-            "Incline Dumbbell Fly (Nishablikda)", "Flat Dumbbell Fly (Gorizontal)", "Decline Dumbbell Press", "Cable Crossover Mid Height",
-            "Cable Crossover Low to High", "Cable Crossover High to Low", "Pec Deck Fly Machine", "Svend Press Plate",
-            "Incline Barbell Press Tor Ushtlam", "Landmine Press One Arm", "Dips Wide Grip Weighted", "Pushups Diamond (Olmali otjimanie)",
-            "Pushups Incline Deficit", "Dumbbell Pullover Heavy", "Smith Machine Decline Press", "Krossover Cross Press",
-            "Flat Dumbbell Press Twist", "Incline Dumbbell Fly Drop", "Pec Deck Fly Drop", "Pectoral Fascia Stretch"
-        ]},
-        { id: 26, title: "26. Orqa Son va Gluteal Ajratish", type: "bulk", drills: [
-            "Romanian Deadlift Heavy", "Lying Leg Curls (Yotib oyoq bukish)", "Seated Leg Curls (O'tirib)", "Standing Leg Curl Machine",
-            "Good Mornings Barbell", "Sumo Squat Heavy", "Glute Ham Raise", "Barbell Hip Thrusts Heavy (Dumba)",
-            "Cable Pull Throughs", "Dumbbell Romanian Deadlift", "Deficit Deadlift", "Glute Kickbacks Cable",
-            "Abductor Machine Heavy", "Stiff Leg Deadlift", "Walking Lunges Heavy Gantel", "Bulgarian Split Squat Glute Focus",
-            "Leg Curls Drop-set", "Hip Thrust Hold 10s", "Sumo Deadlift", "Hamstring Foam Rolling"
-        ]},
-        { id: 27, title: "27. Yosh Bodibilder Maktabi (Baza)", type: "bulk", drills: [
-            "Goblet Squat Perfect", "Pushups Bodyweight", "Assisted Pullups (Rezinkada)", "Dumbbell Bench Press",
-            "Dumbbell Rows Two Arms", "Seated Dumbbell Shoulder Press", "Lat Pulldown Front", "Back Extension Bodyweight",
-            "Dumbbell Bicep Curls", "Triceps Pushdown Machine", "Leg Press Light", "Lying Leg Curls Light",
-            "Standing Calf Raises Light", "Abdominal Crunch", "Plank Bodyweight 45s", "Dumbbell Lateral Raise Light",
-            "Machine Chest Press", "Machine Seated Row", "Air Squats Perfect Form", "Full Body Static Stretching"
-        ]},
-        { id: 28, title: "28. Quvvat va Zichlik (Power-Bulk)", type: "bulk", drills: [
-            "Squat 5x5 Heavy Weights", "Bench Press 5x5 Heavy", "Deadlift 3x5 Heavy", "Overhead Press 5x5",
-            "Barbell Row 5x5", "Weighted Pullups 5x5", "Weighted Dips 5x5", "Incline Bench Press Heavy",
-            "Rack Pulls Heavy", "Leg Press Maximum", "Romanian Deadlift Heavy", "Close Grip Bench Heavy",
-            "Barbell Bicep Curls Heavy", "Dumbbell Lateral Raise Heavy", "Hanging Leg Raise Control", "Farmers Walk Maximum",
-            "Sled Push Heavy", "Kettlebell Swings Heavy", "Smit Machine Shrugs Heavy", "Deep Tissue Foam Rolling"
-        ]},
-        { id: 29, title: "29. Proportsiya va Simmetriya Korreksiyasi", type: "bulk", drills: [
-            "Incline Dumbbell Press Isolated", "One Arm Lat Pulldown (Bir qo'llab)", "Dumbbell Lateral Raise Strict Form", "Rear Delt Cable Fly",
-            "Concentration Bicep Curl", "One Arm Triceps Extension Cable", "Bulgarian Split Squat Unilateral", "Single Leg Press (Bitta oyoqda)",
-            "Lying Single Leg Curl", "Standing Single Calf Raise", "Cable Crossover One Arm", "Dumbbell Row One Arm Strict",
-            "Arnold Press One Arm", "Preacher Curl One Arm", "Triceps Kickback Dumbbell", "Hanging Leg Raise Twist",
-            "Woodchopper Cable", "Plank Side Dynamic", "Superman Diagonal", "Full Body Symmetry Assessment Stretch"
-        ]},
-        { id: 30, title: "30. Eksponent Drop-Set (Mushak Shoki)", type: "bulk", drills: [
-            "Bench Press Drop-set", "Barbell Row Drop-set", "Leg Press Drop-set", "Dumbbell Shoulder Press Drop-set",
-            "Lat Pulldown Drop-set", "Leg Extension Drop-set", "Leg Curl Drop-set", "Bicep Barbell Curl Drop-set",
-            "Triceps Pushdown Drop-set", "Dumbbell Lateral Raise Drop-set", "Chest Fly Machine Drop-set", "Seated Row Drop-set",
-            "Incline Dumbbell Press Drop-set", "Dumbbell Bicep Hammer Curl Drop-set", "Overhead Dumbbell Extension Drop-set", "Calf Raise Drop-set",
-            "Cable Crossover Drop-set", "Hanging Crunch Maximum", "Pushups Bodyweight to Failure", "Total Muscle Exhaustion Cool Down"
-        ]},
-        { id: 31, title: "31. Bench Press Rekord (Maksimal Kuch)", type: "power", drills: [
-            "Shtanga Bench Press (1-3 Reps)", "Tor ushlamda Bench Press Heavy", "Dozator (Board Press)", "Otjimanie Brusda heavy",
-            "Gantellar Gorizontal Press Heavy", "Zanjirlar bilan Bench Press", "Rezinkalar bilan Bench Press", "Incline Barbell Press Heavy",
-            "Yotib gantellarni parallel sıqısh", "Floor Press (Polda yotib press)", "Otjimanie plitka og'irlik bilan", "Triceps kabel pushdown",
-            "Overhead Press Heavy", "Arnold Press Heavy", "Face Pulls og'ir", "Gantel yonga ochish sekin",
-            "Bench Press Max Hold (Statika)", "Teskari ushlamda press", "Brusda drop", "Ko'krak elka fiksatsiya"
-        ]},
-        { id: 32, title: "32. Heavy Squat Poydevori (Oyoq Kuchi)", type: "power", drills: [
-            "Shtanga Squat (1-3 Reps)", "Front Squat Heavy", "Box Squat (Qutiga o'tirish)", "Pause Squat (To'xtash bilan)",
-            "Leg Press Og'ir", "Hack Squat Heavy", "Romanian Deadlift Heavy", "Good Morning heavy",
-            "Bulgarcha Split Squat og'ir", "Oyoq to'g'rilash heavy", "Oyoq bukish og'ir", "Calf raises heavy",
-            "Sled push maks", "Lunges heavy shtanga", "Goblet Squat heavy", "Planka og'irlik bilan",
-            "Squat statik ushlab turish", "Oyoq press drop", "Calf raise drop", "Kvadriceps fiksatsiya"
-        ]},
-        { id: 33, title: "33. Deadlift Rekord Tizimi", type: "power", drills: [
-            "Klassik Deadlift (1-3 Reps)", "Sumo Deadlift Heavy", "Deficit Deadlift (Chuqurdan)", "Rack Pulls (Tizg'oqdan heavy)",
-            "Egilgan holda shtanga belga heavy", "Gantel bir qo'llab og'ir", "T-bar row heavy", "Lat pulldown heavy",
-            "Giperekstenziya og'ir shtanga bilan", "Shrugs shtanga og'ir", "Farmers walk maks og'irlik", "Static hang heavy bar",
-            "Teskari ushlamda curl og'ir", "Wrist roller heavy", "Planka tirsakda og'ir", "Hanging leg raise og'ir",
-            "Deadlift holding maks soniya", "Seated row heavy drop", "Shrugs drop", "Bel umurtqa relaksi"
-        ]},
-        { id: 34, title: "34. Olimpik Kuch (Snatch / Clean & Jerk)", type: "power", drills: [
-            "Barbell Clean and Jerk", "Barbell Snatch", "Power Clean", "Hang Snatch",
-            "Push Press Heavy", "Overhead Squat", "Front Squat Explosive", "Barbell High Pull",
-            "Snatch Pull", "Clean Pull", "Split Jerk", "Thruster Heavy",
-            "Kettlebell Snatch Heavy", "Medicine Ball Slam Heavy", "Box Jump High Explosive", "Plyometric Pushups",
-            "Heavy Barbell Squat Fast", "Deadlift Speed Pulls", "Plank Dynamic", "Olympic Athlete Stretch"
-        ]},
-        { id: 35, title: "35. Strongman Toshko'tarar Pahlavon", type: "power", drills: [
-            "Farmers Walk Maximum", "Log Press Heavy", "Atlas Stones Lift", "Tire Flip (Og'ir Shina)",
-            "Sled Push Maximum", "Sled Pull Heavy", "Heavy Dumbbell Clean and Press", "Axle Bar Deadlift",
-            "Sandbag Carry Extended", "Suitcase Carry Heavy", "Yoke Walk Heavy", "Barbell Shrugs Heavy",
-            "Rack Pulls Maximum", "Kettlebell Swings Heavy", "Dumbbell Wrist Curls Heavy", "Static Bar Hang Heavy",
-            "Heavy Squat Low Reps", "Push Press Barbell", "Plank Weighted Heavy", "Strongman Muscle Recovery Stretch"
-        ]},
-        { id: 36, title: "36. Jangovar Kuch (MMA va Kurash)", type: "power", drills: [
-            "Power Clean Explosive", "Thrusters Heavy", "Medicine Ball Rotational Slams", "Pullups Explosive",
-            "Pushups Clapping", "Kettlebell Swings Heavy", "Deadlift Fast Pulls", "Barbell Landmine Twist",
-            "Sled Sprint", "Battle Ropes Jadal", "Burpee Tuck Jump", "Bear Crawl Heavy",
-            "Dumbbell Snatch Alternating", "Hanging Leg Raises Fast", "Russian Twist Heavy", "Turkish Get-Up Kettlebell",
-            "Shadow Boxing Weighted", "Neck Resistance Training", "Plank Dynamic", "Fighter Mobility Stretch"
-        ]},
-        { id: 37, title: "37. Portlovchi Tezkor Quvvat", type: "power", drills: [
-            "Squat Jumps Weighted", "Bench Press Dynamic Effort", "Speed Deadlift", "Box Jumps Maximum Height",
-            "Clapping Pushups Deficit", "Medicine Ball Chest Pass Explosive", "Kettlebell Clean Fast", "Snatch High Pull",
-            "Broad Jumps Extended", "Lateral Bounds Explosive", "Tuck Jumps Continuous", "Dumbbell Push Press Fast",
-            "Pullups Inersiyali", "Cable Woodchoppers Fast", "Sprint Start Drills", "Plank Jacks Fast",
-            "Mountain Climbers Sprint", "Burpee Explosive Max", "Assault Bike Sprint", "Elastic Muscle Stretch"
-        ]},
-        { id: 38, title: "38. Pay va Bo'g'im Kuchaytirish", type: "power", drills: [
-            "Isometric Squat Hold Heavy", "Isometric Bench Press Pin Hold", "Deadlift Isometric Pull against Pins", "Partial Rack Pulls Ultra Heavy",
-            "Heavy Calf Raises Eccentric Slow", "Slow Eccentric Pullups", "Slow Eccentric Dips", "Wrist Curls Static Hold",
-            "Reverse Wrist Curls Static", "Farmers Walk Plate Pinch Extended", "Static Hang Extended", "Plank Weighted Static",
-            "Glute Ham Raise Slow", "Nordic Hamstring Curl Negatives", "Wall Sit Heavy Og'irlik", "Dumbbell Lateral Raise Hold",
-            "Barbell Bicep Curl Isometric", "Triceps Pushdown Static Hold", "Superman Hold Extended", "Deep Joint Mobility Activation"
-        ]},
-        { id: 39, title: "39. Taktik Harbiy To'liq Kombonat", type: "power", drills: [
-            "Ruck Marching / Og'ir Sumka", "Pullups Strict Form", "Pushups Strict Form", "Barbell Clean and Press",
-            "Deadlift Klassik", "Squat Perfect Form", "Farmers Walk Extended", "Sandbag Lift and Carry",
-            "Hanging Leg Raises", "Dips Bodyweight", "Burpee Continuous", "Mountain Climbers Steady",
-            "Bear Crawl Extended", "Kettlebell Goblet Squat", "Dumbbell Rows Two Arms", "Plank Hold 2 Minutes",
-            "Sprint Intervalli", "Walking Lunges Extended", "Bodyweight Air Squats High Reps", "Tactical Cool Down Stretch"
-        ]},
-        { id: 40, title: "40. Alfa-Panja Mutloq Kuch", type: "power", drills: [
-            "Fat Gripz Barbell Curl", "Fat Gripz Deadlift Hold", "Plate Pinch Walk", "Towel Pullups Strict",
-            "Captain of Crush Gripper Squeeze", "Barbell Wrist Curls Heavy", "Barbell Reverse Wrist Curls Heavy", "Wrist Roller Heavy Weights",
-            "Dumbbell Hex Hold", "Static Hang One Arm", "Farmers Walk Extended Heavy", "Cable Wrist Flexion",
-            "Reverse Grip Barbell Curl Heavy", "Hammer Curls Slow", "Finger Pushups", "Rice Bucket Hand Exercises",
-            "Dumbbell Rotation Wrist Heavy", "Barbell Hold Maximum Time", "Cable Reverse Curl Drop", "Forearm Extensions Stretch"
-        ]},
-        { id: 41, title: "41. Landmine 3D Rotatsion Tizim", type: "power", drills: [
-            "Landmine Press One Arm", "Landmine Twist Rotational", "Landmine Squat to Press", "Landmine Row One Arm",
-            "Landmine Reverse Lunge", "Landmine Sumo Squat", "Landmine Single Leg Romanian Deadlift", "Landmine Meadows Row",
-            "Landmine Overhead Press Two Arms", "Landmine Curtsy Lunge", "Landmine Lateral Lunge", "Landmine Anti-Rotation Hold",
-            "Landmine Shrugs", "Landmine Floor Press", "Landmine Clean and Press", "Landmine Jerk",
-            "Landmine Twist Fast", "Landmine Row Two Arms", "Landmine Squat Heavy", "Core Decompression Stretch"
-        ]},
-        { id: 42, title: "42. Girevoy Heavy Master (Gira Kuchi)", type: "power", drills: [
-            "Kettlebell Two Arm Swing Heavy", "Kettlebell One Arm Snatch", "Kettlebell Clean and Press", "Kettlebell Turkish Get-Up",
-            "Kettlebell Goblet Squat Heavy", "Kettlebell Renegade Row", "Kettlebell Windmill", "Kettlebell Rack Lunge",
-            "Kettlebell Push Press", "Kettlebell Sumo Deadlift High Pull", "Kettlebell Halos Core", "Kettlebell Floor Press",
-            "Kettlebell Slingshot", "Kettlebell Single Leg Deadlift", "Kettlebell Double Clean", "Kettlebell Double Squat",
-            "Kettlebell Jerk Two Arms", "Kettlebell Farmers Walk", "Kettlebell Swing Drop-set", "Shoulder Hip Mobility Girevoy"
-        ]},
-        { id: 43, title: "43. Zanjir va Kauchuk Rezinkalar", type: "power", drills: [
-            "Bench Press with Chains", "Squat with Bands", "Deadlift with Bands", "Overhead Press with Chains",
-            "Barbell Row with Bands", "Pushups with Band Resistance", "Bicep Curls with Band", "Triceps Pushdown with Band and Cable",
-            "Leg Press with Bands Attached", "Dumbbell Fly with Band Assistance", "Pullups with Band Resistance Heavy", "Dips with Chains around Neck",
-            "Romanian Deadlift with Bands", "Shrugs with Chains", "Lateral Raises with Bands", "Good Mornings with Bands",
-            "Bench Press with Bands Maximum Tension", "Squat with Chains Heavy", "Deadlift with Chains Speed", "Elastic Recovery Stretching"
-        ]},
-        { id: 44, title: "44. To'liq Isometrik Blokada", type: "power", drills: [
-            "Static Bench Press against Immovable Bar", "Static Squat against Immovable Pins", "Static Deadlift Pull against Bottom Pins", "Static Overhead Press Pin Push",
-            "Static Shrugs Maximum Effort", "Static Bicep Pull against Bench Bottom", "Plank Weighted Maximum Effort", "Wall Sit Maximum Static Weight",
-            "Static Leg Extension against Lock", "Static Seated Row Pull against Frame", "Static Calf Raise Push against Block", "Static Finger Squeeze Max",
-            "Static Neck Resistance Immovable", "Static Hip Abduction against Strap", "Static Chest Fly Iso-Hold", "Static Lat Pulldown Iso-Hold",
-            "Static Leg Curl Iso-Hold", "Static Giperekstenziya Hold Heavy", "Static Superman Hold Heavy", "Full Nervous System Calming Stretch"
-        ]},
-        { id: 45, title: "45. Orqa Zanjir Muskullari (Posterior Chain)", type: "power", drills: [
-            "Klassik Deadlift Heavy", "Sumo Deadlift Heavy", "Romanian Deadlift Heavy", "Good Mornings Heavy Barbell",
-            "Giperekstenziya Og'irlik bilan", "Glute Ham Raise Heavy", "Barbell Hip Thrusts Maximum", "Snatch Grip Deadlift",
-            "Deficit Deadlift Heavy", "Rack Pulls Ultra Heavy", "Barbell Shrugs Heavy", "Egilgan holda Barbell Row",
-            "T-Bar Row Heavy Weights", "Cable Pull Throughs Heavy", "Kettlebell Swings Heavy", "Sled Drag Backward Heavy",
-            "Dumbbell Romanian Deadlift Heavy", "Farmers Walk Heavy Weight", "Deadlift Static Hold Heavy", "Posterior Chain Myofascial Release"
-        ]},
-        { id: 46, title: "46. Umurtqa Fiksatsiyasi & Bel Sog'lig'i", type: "health", drills: [
-            "Giperekstenziya (Vaznsiz, Statik Nazorat)", "Bird-Dog (Diagonal Oyoq-Qo'l Ko'tarish)", "Dead Bug (O'lik Qo'ng'iz Mashqi)", "Glute Bridge (Chanoq Ko'tarish Kontrol)",
-            "Mushuk-Sigir Pozasi (Cat-Cow)", "Planka Tirsakda (To'g'ri Texnika)", "Yondan Statik Planka", "Kobra Pozasida Belni Cho'zish",
-            "Chaqaloq Pozasi Relaks (Child's Pose)", "Oyoqlarni Devorga Suyab Yotish", "Tizlarni Yotgan Holda Yonga Burish", "Prone Superman (Yengil)",
-            "Abdominal Vakuum Mashqi", "O'tirgan Holda Umurtqa Cho'zilishi", "Yotib Bir Oyoqni Ko'krakka Tortish", "Pilates Uslubidagi Suzish",
-            "Rezinka bilan Yelkani Orqaga Tortish", "O'tirib Belni Aylantirish", "Yengil Piyoda Yurish (20 daqiqa)", "Umurtqani To'liq Dekompressiya Qilish"
-        ]},
-        { id: 47, title: "47. Tizza Bo'g'imlari Reabilitatsiyasi", type: "health", drills: [
-            "Statik Devorga Suyanish (Wall Sit)", "Glute Bridge Ikki Oyoqlab", "Yotgan Holda Oyoqni To'g'ri Ko'tarish", "Oyoq Uchlarida Yengil Turish",
-            "Kauchuk Rezinka bilan Oyoq To'g'rilash", "Tiz Bo'g'imini Yengil Aylantirish", "O'tirgan Holda Oyoqni Bukish-Yozish", "Yonboshlab Oyoqni Yonga Ko'tarish",
-            "Step-Platformaga Yengil Qadam", "Glute Bridge To'piqlarni Bosib", "Yengil Velotrenajor (Kam Qarshilik)", "Oyoq Muskullarini Qo'lda Massaj Qilish",
-            "Muvozanatni Saqlash (Bitta Oyoqda)", "Sonning Orqa Mushagi Cho'zilishi", "Sonning Old Mushagi Cho'zilishi", "Boldir Mushaklari Relaksi",
-            "Kovrik Ustida Yengil Yurish", "Tiz Ostiga Sochiq Qo'yib Bosish", "Yodda Chanoqni Yonga Burish", "To'liq Oyoq Bo'g'imlari Relaksi"
-        ]},
-        { id: 48, title: "48. Gipertoniya va Kardio Tonus (Yurak)", type: "health", drills: [
-            "Yengil Doimiy Tempdagi Yurish", "Nafas Nazorati ostida Air Squats", "Devorga Tayanib Otjimanie", "Qo'llarni Yonga Aylantirish",
-            "Yodda Chuqur Diafragma Nafas Mashqi", "Yengil Tempda Velotrenajor", "Yelkalar va Bo'yin Mobilizatsiyasi", "O'tirgan holda qo'llarni tepaga ko'tarish",
-            "Yengil Yonbosh Qadamlar", "Tana Muvozanati Mashqlari", "Kovrikda Chaqaloq Pozasi", "Qo'l Bo'g'imlari Mashqlari",
-            "Oyoq Bo'g'imlari Yengil Harakati", "Teskari Kapalak Cho'zilishi", "O'tirib Hamstring Cho'zish", "Ko'krak Qafasini Keng Ochish",
-            "Yengil Aylana bo'ylab yurish", "Statik Devor Cho'zilishi", "Chuqur Cho'zilish va Relaksatsiya", "Nafasni Normallashtirish Meditatsiyasi"
-        ]},
-        { id: 49, title: "49. Postura Master (Qomat Tiklash, Skolioz)", type: "health", drills: [
-            "Face Pulls Yengil Rezinka bilan", "Wall Slides Devorga", "Y-W-T Lifts", "Prone Cobra / Korpus ko'tarish",
-            "Bird-Dog Strict Form", "Cat-Cow Stretch perfect", "Doorway Chest Stretch", "Seated Row Past Og'irlik",
-            "Band Pull-Apart Rezinka", "Chin Tucks Bo'yin", "Thoracic Extension", "Planka Mukammal To'g'ri",
-            "Side Plank Left/Right", "Childs Pose Twist", "Kettlebell Halo Light", "Superman Hold Control",
-            "Glute Bridge Chest Opener", "Standing Spine Roll Down", "Turnikda Yengil Osilish", "Full Posture Alignment Control"
-        ]},
-        { id: 50, title: "50. Anti-Stress & Kortizol Kamaytirish", type: "health", drills: [
-            "Deep Diaphragmatic Breathing", "Childs Pose Extended", "Cat-Cow Flow Sekin", "Downward Facing Dog Yoga",
-            "Warrior I Pose Jangchi", "Cobra Pose Slow", "Pigeon Pose Left", "Pigeon Pose Right",
-            "Seated Forward Fold", "Butterfly Stretch", "Happy Baby Pose", "Spinal Twist Lying",
-            "Sphinx Pose", "Puppy Dog Pose", "Thread the Needle Stretch", "Corpse Pose Savasana",
-            "Anuloma Viloma Nafas Mashqi", "Gentle Neck and Shoulder Flow", "Legs Up the Wall Relaxation", "Mindful Body Scan Meditation"
-        ]},
-        { id: 51, title: "51. Moslashuvchanlik Matritsai (Flexibility)", type: "health", drills: [
-            "Standing Forward Bend", "Seated Hamstring Stretch", "Standing Quad Stretch", "Dynamic Side Lunges",
-            "Hip Opener Stretch", "Cobra to Childs Pose Flow", "Chest Opener Doorway", "Shoulder Pass-Throughs Stick",
-            "Triceps Over Head Stretch", "Wrist and Forearm Stretch", "Calf Stretch Wall", "Glute Stretch Lying",
-            "Butterfly Pose Dynamic", "Spinal Roll Down", "Low Lunge Hip Flexor Stretch", "Kossak Squats Bodyweight",
-            "Deep Squat Hold", "Arm Circles Dynamic", "Torso Twists Dynamic", "Full Body Passive Stretch"
-        ]},
-        { id: 52, title: "52. Po'lat Korpus (Chidamlilik va Core)", type: "health", drills: [
-            "Plank Forearm Hold 1 Min", "Side Plank Dynamic Left", "Side Plank Dynamic Right", "Bird-Dog Extended",
-            "Dead Bug Controlled", "Russian Twist Bodyweight", "Bicycle Crunch Strict", "Hanging Leg Raise L-Sit",
-            "V-Ups Controlled", "Reverse Crunch", "Plank Shoulder Taps Control", "Mountain Climbers Slow Form",
-            "Superman Hold 30s", "Pallof Press Cable/Band", "Woodchopper Band", "Flutter Kicks",
-            "Plank Saw", "Bear Crawl Hold", "Glute Bridge Single Leg", "Core Vacuum Stability"
-        ]},
-        { id: 53, title: "53. Senior Fitness (Kattalar uchun Sog'lomlik)", type: "health", drills: [
-            "Chair Squats perfect form", "Wall Pushups Control", "Seated Leg Extensions", "Standing Calf Raises Support",
-            "Bird-Dog Light", "Glute Bridge Bodyweight Easy", "Step-ups Light", "Arm Circles Light",
-            "Seated Torso Twists", "Standing Balance on One Leg", "Cat-Cow Stretch", "Chest Opener Standing",
-            "Hamstring Stretch Seated", "Shoulder Rolls", "Ankle Circles Seated", "Wrist Flexion Light",
-            "Gentle Walking Steady", "Low Impact Side Steps", "Childs Pose Relaxation", "Deep Breathing Oxygenation"
-        ]},
-        { id: 54, title: "54. Office Anti-Fatigue (Ofis Charchog'i)", type: "health", drills: [
-            "Standing Desk Squats", "Desk Incline Pushups", "Seated Spinal Twist Ofis", "Neck Mobility Matrix",
-            "Shoulder Shrugs and Rolls", "Wrist Extension Stretch", "Seated Hamstring Stretch Ofis", "Standing Calf Raises Ofis",
-            "Chest Opener Wall", "Hip Flexor Stretch Standing", "Seated Figure 4 Glute Stretch", "Ankle Mobility Rolls",
-            "Standing Side Bends", "Forward Fold Hanging", "Scapular Squeezes", "Plank on Desk",
-            "High Knees Slow Standing", "Deep Diaphragm Breathing", "Eye Fatigue Relief Exercises", "Spine Decompression Hang"
-        ]},
-        { id: 55, title: "55. To'liq Energetik Tizimni Qayta Yuklash", type: "health", drills: [
-            "Full Body Foam Rolling Activation", "Joint Mobility Dynamic Warmup", "Light Bodyweight Squats", "Bird-Dog High Precision",
-            "Dead Bug High Precision", "Glute Bridge Hold 5s", "Perfect Posture Wall Sit", "Scapular Wall Slides",
-            "Y-W-T Prone Raises", "Band Pull-Aparts Control", "Cat-Cow Flow Smooth", "Low Lunge Stretch Left/Right",
-            "Pigeon Pose Decompression", "Thoracic Spine Mobilization", "Childs Pose Active", "Cobra Pose Breath Sync",
-            "Seated Forward Bend Passive", "Deep Squat Mobility Sit", "Diaphragm Breathing Matrix", "Savasana Total Nervous Reset"
-        ]}
-    ];
-
-    function initializeCyberPlatform() {
-        const fullname = document.getElementById('user-fullname').value.trim();
-        const mass = document.getElementById('user-mass').value;
-        const targetMass = document.getElementById('user-target-mass').value;
-        const growth = document.getElementById('user-growth').value;
-        const years = document.getElementById('user-years').value;
-        const primaryGoal = document.getElementById('user-primary-goal').value;
-        const medical = document.getElementById('user-medical-condition').value;
-
-        if (!fullname || !mass || !targetMass || !growth || !years) {
-            alert("Matrix Error: Iltimos hamma biometrik maydonlarni kiriting!");
-            return;
-        }
-
-        globalUser = { fullname, mass, targetMass, growth, years, primaryGoal, medical };
-        localStorage.setItem('fbu_user', JSON.stringify(globalUser));
-
-        populateMissionSelectMenu();
-        applyDynamicStickerSkins();
-
-        document.getElementById('view-onboarding').classList.remove('active-view');
-        document.getElementById('view-routine').classList.add('active-view');
-        document.getElementById('app-navigation-dock').style.display = 'flex';
-        
-        renderRoutineSystem();
-        recompileMissionViewer();
-    }
-
-    function populateMissionSelectMenu() {
-        const selector = document.getElementById('master-mission-index');
-        selector.innerHTML = "";
-        masterMissionMatrix.forEach(m => {
-            const opt = document.createElement('option');
-            opt.value = m.id;
-            opt.textContent = m.title;
-            if(globalUser && globalUser.primaryGoal === m.type) {
-                opt.textContent += " ⭐ (Tavsiya)";
+    /* ----------------------------------------------------------------------------------
+       Amazon.UZ SECURE MARKETPLACE LOGIC DISTRIBUTOR ENGINE v4.0
+       ---------------------------------------------------------------------------------- */
+    
+    // REGIONAL MAP OBJECT DATABASE
+    const geoDatabase = {
+        Tashkent: {
+            districts: ["Yunusobod", "Chilonzor", "Mirzo Ulugbek"],
+            branches: {
+                Yunusobod: ["Yunusobod Mega Planet Branch 1", "Yunusobod Metro Station Hub"],
+                Chilonzor: ["Chilonzor Trade Center Branch 3", "Bunyodkor Stadium Delivery Point"],
+                "Mirzo Ulugbek": ["Mirzo Ulugbek Park Hub", "TTZ Regional Logistics Station"]
             }
-            selector.appendChild(opt);
-        });
-    }
-
-    function applyDynamicStickerSkins() {
-        const leftBox = document.getElementById('header-sticker-left');
-        const rightBox = document.getElementById('header-sticker-right');
-        if (!globalUser) return;
-        
-        let color = "#ff5500";
-        // Har xil maqsadlar uchun maxsus chizilgan zamonaviy original SVG stikerlar
-        let leftIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`;
-        let rightIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`;
-
-        if(globalUser.primaryGoal === 'bulk') {
-            color = "#00ff66";
-            leftIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 12h12M12 6v12M4 8v8M20 8v8"/></svg>`;
-        } else if(globalUser.primaryGoal === 'power') {
-            color = "#ffaa00";
-            leftIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 7v10M18 7v10"/></svg>`;
-        } else if(globalUser.primaryGoal === 'health') {
-            color = "#00f0ff";
-            leftIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`;
+        },
+        Samarkand: {
+            districts: ["Bulungur", "Pastdargom", "Samarqand Shahar"],
+            branches: {
+                Bulungur: ["Bulungur Main Highway Depot", "Bulungur Central Market Office"],
+                Pastdargom: ["Pastdargom Juma Delivery Terminal"],
+                "Samarqand Shahar": ["Registan Square Premium Branch", "Samarkand Airport Hub Station"]
+            }
+        },
+        Fergana: {
+            districts: ["Margilon", "Qo'qon", "Farg'ona Shahar"],
+            branches: {
+                Margilon: ["Margilon Silk Station Center"],
+                "Qo'qon": ["Kokand Palace Express Terminal", "Kokand Train Depot Center"],
+                "Farg'ona Shahar": ["Fergana Central Stadium Pick Point"]
+            }
+        },
+        Bukhara: {
+            districts: ["Gijduvon", "Buxoro Shahar"],
+            branches: {
+                Gijduvon: ["Gijduvon Ceramic Route Terminal"],
+                "Buxoro Shahar": ["Ark Fortress Historic Branch", "Bukhara New Airport Cargo Hub"]
+            }
         }
+    };
 
-        [leftBox, rightBox].forEach(box => {
-            box.style.borderColor = color;
-            box.style.color = color;
-            box.style.background = `rgba(${color==='#ff5500'?'255,85,0':color==='#00ff66'?'0,255,102':color==='#ffaa00'?'255,170,0':'0,240,255'},0.12)`;
-        });
+    const app = {
+        products: [],
+        cart: JSON.parse(localStorage.getItem('bek_v4_cart')) || [],
+        user: localStorage.getItem('bek_v4_user') || null,
+        allShops: JSON.parse(localStorage.getItem('bek_all_shops_v4')) || [],
+        currentActiveShop: JSON.parse(localStorage.getItem('bek_current_shop_v4')) || null,
+        currentOtpTask: null,
+        pendingEmail: null,
 
-        leftBox.innerHTML = leftIcon;
-        rightBox.innerHTML = rightIcon;
-    }
+        init() {
+            this.syncProducts();
+            this.renderProducts();
+            this.initBanner();
+            this.updateGlobalUI();
+            this.setupSecurityFilters();
+            this.setupGlobalClickDismissal();
+        },
 
-    function executeNavigation(targetViewId) {
-        document.querySelectorAll('.screen-view').forEach(v => v.classList.remove('active-view'));
-        document.querySelectorAll('.dock-tab').forEach(t => t.classList.remove('active-tab'));
+        setupSecurityFilters() {
+            const fields = ['card-num', 'card-mmyy', 'card-cvv', 'otp-code'];
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                if(el) {
+                    el.addEventListener('input', (e) => {
+                        e.target.value = e.target.value.replace(/\D/g, '');
+                    });
+                }
+            });
+        },
 
-        document.getElementById(targetViewId).classList.add('active-view');
-        if(targetViewId === 'view-routine') document.getElementById('tab-routine').classList.add('active-tab');
-        if(targetViewId === 'view-missions') document.getElementById('tab-missions').classList.add('active-tab');
-    }
+        setupGlobalClickDismissal() {
+            // Closes user context menus gracefully if clicking outside
+            document.addEventListener('click', (e) => {
+                const popup = document.getElementById('profile-actions');
+                const nav = document.getElementById('user-context');
+                if(popup && nav && !nav.contains(e.target)) {
+                    popup.classList.remove('show');
+                }
+            });
+        },
 
-    function renderRoutineSystem() {
-        const anchor = document.getElementById('routine-nodes-anchor');
-        anchor.innerHTML = "";
+        toggleProfileDropdown(event) {
+            event.stopPropagation();
+            if(!this.user) {
+                this.showPage('auth');
+                return;
+            }
+            const popup = document.getElementById('profile-actions');
+            popup.classList.toggle('show');
+        },
 
-        if(globalRoutine.length === 0) {
-            anchor.innerHTML = `<p style="color:var(--text-cyber-muted); font-size:12px; text-align:center; padding:30px;">Hech qanday reja topilmadi.</p>`;
-            return;
-        }
+        syncProducts() {
+            const categories = ['Electronics', 'Fashion', 'Home', 'Beauty', 'Books'];
+            const imgs = {
+                'Electronics': 'https://m.media-amazon.com/images/I/61SUj2W5ZoL._AC_UY218_.jpg',
+                'Fashion': 'https://m.media-amazon.com/images/I/71YyM9G6D8L._AC_UL320_.jpg',
+                'Home': 'https://m.media-amazon.com/images/I/81Pj01j68vL._AC_SL1500_.jpg',
+                'Beauty': 'https://m.media-amazon.com/images/I/71q+Xf86v3L._AC_UL320_.jpg',
+                'Books': 'https://m.media-amazon.com/images/I/910Xv1N+EFL._AC_UY218_.jpg'
+            };
 
-        globalRoutine.forEach((node, idx) => {
-            const div = document.createElement('div');
-            div.className = `routine-node ${node.completed ? 'done-state' : ''}`;
-            div.innerHTML = `
-                <div style="flex: 1;" class="routine-text-block">
-                    <span class="time-badge">${node.time}</span>
-                    <span style="font-size:13px; font-weight:700; display:block; margin-top:2px;">${node.desc}</span>
+            const base = [];
+            for (let i = 1; i <= 50; i++) {
+                let cat = categories[i % 5];
+                base.push({
+                    id: 'mock_' + i,
+                    title: `Bek Premium ${cat} Line - Model ${2026 + i % 2}`,
+                    price: Math.floor(Math.random() * 600) + 15,
+                    img: imgs[cat],
+                    cat: cat,
+                    vendor: "Bek Warehouse System",
+                });
+            }
+
+            const customs = [];
+            this.allShops.forEach(shop => {
+                if(shop.inventory) {
+                    shop.inventory.forEach(p => customs.push(p));
+                }
+            });
+
+            this.products = [...customs, ...base];
+        },
+
+        updateGlobalUI() {
+            const qty = this.cart.reduce((s, x) => s + x.qty, 0);
+            document.getElementById('cart-count').innerText = qty;
+
+            if (this.user) {
+                const shortened = this.user.split('@')[0];
+                document.getElementById('user-display').innerText = shortened;
+                document.getElementById('full-email-display').innerText = this.user;
+            } else {
+                document.getElementById('user-display').innerText = "Sign in";
+                document.getElementById('full-email-display').innerText = "";
+            }
+        },
+
+        renderProducts(data = this.products) {
+            const grid = document.getElementById('product-grid');
+            if(!grid) return;
+
+            grid.innerHTML = data.map(p => `
+                <div class="product-card">
+                    <div class="img-box" onclick="app.addToCart('${p.id}')"><img src="${p.img}"></div>
+                    <h3>${p.title}</h3>
+                    <div class="rating">★★★★★</div>
+                    <div class="vendor">Shop: <b>${p.vendor}</b></div>
+                    <div class="price">$${p.price.toFixed(2)}</div>
+                    <button class="btn-add" onclick="app.addToCart('${p.id}')">Add to Cart</button>
                 </div>
-                <div class="routine-controls">
-                    <div class="cyber-check" onclick="toggleRoutineNode(${idx})"></div>
-                    <button class="trash-trigger" onclick="eraseRoutineNode(${idx})">
-                        <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                    </button>
-                </div>
-            `;
-            anchor.appendChild(div);
-        });
-    }
+            `).join('');
+        },
 
-    function registerRoutineNode() {
-        const time = document.getElementById('routine-time-window').value.trim();
-        const desc = document.getElementById('routine-action-desc').value.trim();
+        addToCart(id) {
+            if (!this.user) {
+                alert("Security Action: Authorization required to acquire items.");
+                return this.showPage('auth');
+            }
 
-        if(!time || !desc) return;
+            const p = this.products.find(x => x.id === id);
+            const nested = this.cart.find(x => x.id === id);
 
-        globalRoutine.push({ time, desc, completed: false });
-        localStorage.setItem('fbu_routine', JSON.stringify(globalRoutine));
-        renderRoutineSystem();
+            if(nested) {
+                nested.qty++;
+            } else {
+                this.cart.push({ ...p, qty: 1 });
+            }
 
-        document.getElementById('routine-time-window').value = "";
-        document.getElementById('routine-action-desc').value = "";
-    }
+            this.syncCartStorage();
+            alert("Updated cart parameters for: " + p.title);
+        },
 
-    function toggleRoutineNode(idx) {
-        globalRoutine[idx].completed = !globalRoutine[idx].completed;
-        localStorage.setItem('fbu_routine', JSON.stringify(globalRoutine));
-        renderRoutineSystem();
-    }
+        syncCartStorage() {
+            localStorage.setItem('bek_v4_cart', JSON.stringify(this.cart));
+            this.updateGlobalUI();
+        },
 
-    function eraseRoutineNode(idx) {
-        globalRoutine.splice(idx, 1);
-        localStorage.setItem('fbu_routine', JSON.stringify(globalRoutine));
-        renderRoutineSystem();
-    }
-
-    function recompileMissionViewer() {
-        const currentId = document.getElementById('master-mission-index').value || 1;
-        const anchor = document.getElementById('mission-drills-anchor');
-        const coachSpeech = document.getElementById('ai-coach-voice-output');
-
-        const currentMission = masterMissionMatrix.find(m => m.id == currentId);
-        if(!currentMission) return;
-
-        if(!globalMissionState[currentId]) {
-            globalMissionState[currentId] = Array(20).fill(false);
-        }
-
-        let completedCount = globalMissionState[currentId].filter(Boolean).length;
-        let percentage = Math.floor((completedCount / 20) * 100);
-
-        document.getElementById('hud-percentage-text').textContent = `${percentage}%`;
-        document.getElementById('hud-bar-core').style.width = `${percentage}%`;
-
-        if(percentage === 100) {
-            coachSpeech.innerHTML = `🎉 <b>Mukammal natija!</b> Missiyaning barcha 20 ta bosqichi muvaffaqiyatli yakunlandi.`;
-        } else {
-            let warning = "";
-            if(globalUser.medical === 'spine') warning = " ⚠️ Diqqat: Belingizni ortiqcha bukmang.";
-            if(globalUser.medical === 'joints') warning = " ⚠️ Diqqat: Tizza bo'g'imlarini ehtiyot qiling.";
-            if(globalUser.medical === 'heart') warning = " ⚠️ Diqqat: Puls juda oshib ketmasligini nazorat qiling.";
-
-            coachSpeech.innerHTML = `🦾 <b>Salom, ${globalUser.fullname}!</b> Hozirgi vazningiz ${globalUser.mass} kg va maqsad ${globalUser.targetMass} kg. Maqsadingiz uchun ushbu 20 ta mashqni muntazam bajarish zarur.${warning}`;
-        }
-
-        anchor.innerHTML = "";
-        currentMission.drills.forEach((drill, index) => {
-            let isDone = globalMissionState[currentId][index];
-            const div = document.createElement('div');
-            div.className = `drill-card`;
+        renderCart() {
+            const list = document.getElementById('cart-items-list');
+            const box = document.getElementById('checkout-section');
             
-            let specs = currentMission.type === 'diet' ? "3 Raund x 45s" : 
-                        currentMission.type === 'bulk' ? "4 Set x 12 Reps" :
-                        currentMission.type === 'power' ? "5 Set x 3 Reps" : "3 Set x 60s";
+            if (this.cart.length === 0) {
+                list.innerHTML = `<p style="text-align:center; color:#555; padding:40px 0;">Your shopping platform cart is totally empty.</p>`;
+                box.style.display = 'none';
+                return;
+            }
 
-            div.innerHTML = `
-                <div class="drill-index">${index + 1}</div>
-                <div class="drill-meta">
-                    <h5 style="${isDone ? 'text-decoration: line-through; color:var(--text-cyber-muted);' : ''}">${drill}</h5>
-                    <p>${specs}</p>
+            list.innerHTML = this.cart.map((item, index) => `
+                <div class="cart-item">
+                    <img src="${item.img}">
+                    <div class="cart-item-info">
+                        <h4>${item.title}</h4>
+                        <div style="font-size:11px; color:gray; margin-top:2px;">Vendor: ${item.vendor}</div>
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="app.mutateQty(${index}, -1)">-</button>
+                            <span>${item.qty}</span>
+                            <button class="qty-btn" onclick="app.mutateQty(${index}, 1)">+</button>
+                            <span style="color:var(--price); font-size:11px; margin-left:15px; cursor:pointer;" onclick="app.eraseCartItem(${index})">Remove</span>
+                        </div>
+                    </div>
+                    <div class="cart-price-side">$${(item.price * item.qty).toFixed(2)}</div>
                 </div>
-                <input type="checkbox" ${isDone ? 'checked' : ''} onchange="toggleDrillState(${currentId}, ${index})" style="width:18px; height:18px; accent-color: var(--matrix-green); cursor:pointer;">
-            `;
-            anchor.appendChild(div);
-        });
-    }
+            `).join('');
 
-    function toggleDrillState(missionId, drillIdx) {
-        globalMissionState[missionId][drillIdx] = !globalMissionState[missionId][drillIdx];
-        localStorage.setItem('fbu_mission_state', JSON.stringify(globalMissionState));
-        recompileMissionViewer();
-    }
+            const sum = this.cart.reduce((s, x) => s + (x.price * x.qty), 0);
+            document.getElementById('total-price-display').innerText = `$${sum.toFixed(2)}`;
+            box.style.display = 'block';
+        },
 
-    // AUTO RUN CHECKER
-    if (globalUser) {
-        document.getElementById('view-onboarding').classList.remove('active-view');
-        document.getElementById('view-routine').classList.add('add-view' ? 'active-view' : 'active-view');
-        document.getElementById('app-navigation-dock').style.display = 'flex';
-        populateMissionSelectMenu();
-        applyDynamicStickerSkins();
-        renderRoutineSystem();
-        recompileMissionViewer();
-    }
+        mutateQty(idx, shift) {
+            this.cart[idx].qty += shift;
+            if (this.cart[idx].qty < 1) this.cart[idx].qty = 1;
+            this.syncCartStorage();
+            this.renderCart();
+        },
+
+        eraseCartItem(idx) {
+            this.cart.splice(idx, 1);
+            this.syncCartStorage();
+            this.renderCart();
+        },
+
+        /* GEO CONDITIONAL CASCADE LOGIC MODULES */
+        handleRegionChange() {
+            const regSelect = document.getElementById('geo-region');
+            const distSelect = document.getElementById('geo-district');
+            const branchSelect = document.getElementById('geo-branch');
+            
+            const selectedRegion = regSelect.value;
+            
+            distSelect.innerHTML = '<option value="">-- Choose District --</option>';
+            branchSelect.innerHTML = '<option value="">-- Choose Branch --</option>';
+            branchSelect.disabled = true;
+
+            if(!selectedRegion) {
+                distSelect.disabled = true;
+                return;
+            }
+
+            const data = geoDatabase[selectedRegion];
+            data.districts.forEach(d => {
+                distSelect.innerHTML += `<option value="${d}">${d}</option>`;
+            });
+            distSelect.disabled = false;
+        },
+
+        handleDistrictChange() {
+            const regSelect = document.getElementById('geo-region').value;
+            const distSelect = document.getElementById('geo-district').value;
+            const branchSelect = document.getElementById('geo-branch');
+
+            branchSelect.innerHTML = '<option value="">-- Choose Branch --</option>';
+            
+            if(!distSelect) {
+                branchSelect.disabled = true;
+                return;
+            }
+
+            const options = geoDatabase[regSelect].branches[distSelect];
+            options.forEach(b => {
+                branchSelect.innerHTML += `<option value="${b}">${b}</option>`;
+            });
+            branchSelect.disabled = false;
+        },
+
+        // OTP LAYER ACTIVATORS
+        triggerOTP(task) {
+            if (task === 'login') {
+                let contextEmail = document.getElementById('auth-email').value.trim();
+                if(!contextEmail) return alert("System requires identifier input.");
+                
+                // CRITICAL MANDATORY RULES APPLIED SECURELY HERE
+                if (!contextEmail.endsWith('@gmail.com')) {
+                    contextEmail += "@gmail.com";
+                }
+                this.pendingEmail = contextEmail;
+            }
+
+            if (task === 'payment') {
+                const reg = document.getElementById('geo-region').value;
+                const dst = document.getElementById('geo-district').value;
+                const brn = document.getElementById('geo-branch').value;
+                
+                if(!reg || !dst || !brn) {
+                    return alert("Logistic Requirement: Please choose distribution branch location fully!");
+                }
+
+                const c = document.getElementById('card-num').value;
+                const m = document.getElementById('card-mmyy').value;
+                const v = document.getElementById('card-cvv').value;
+                if (c.length < 16 || m.length < 4 || v.length < 3) {
+                    return alert("Security Parameters Refused: Card parameters must be structurally correct.");
+                }
+            }
+
+            if(task === 'market') {
+                const mn = document.getElementById('m-name').value.trim();
+                const me = document.getElementById('m-email').value.trim();
+                if(!mn || !me) return alert("Forms incomplete.");
+            }
+
+            this.currentOtpTask = task;
+            document.getElementById('modal-blur').style.display = 'flex';
+        },
+
+        verifyOTP() {
+            if (document.getElementById('otp-code').value === "1234") {
+                document.getElementById('modal-blur').style.display = 'none';
+                document.getElementById('otp-code').value = "";
+                this.executeWorkflowClosure();
+            } else {
+                alert("Cryptographic signature mismatch!");
+            }
+        },
+
+        executeWorkflowClosure() {
+            const t = this.currentOtpTask;
+            if (t === 'login') {
+                this.user = this.pendingEmail;
+                localStorage.setItem('bek_v4_user', this.user);
+                this.updateGlobalUI();
+                this.showPage('home');
+            } 
+            else if (t === 'market') this.registerMarketStore();
+            else if (t === 'payment') this.executeOrderTransaction();
+        },
+
+        fullLogout(event) {
+            event.stopPropagation();
+            if(confirm("Log out completely from this account?")) {
+                localStorage.removeItem('bek_v4_user');
+                localStorage.removeItem('bek_v4_cart');
+                this.user = null;
+                this.cart = [];
+                this.updateGlobalUI();
+                document.getElementById('profile-actions').classList.remove('show');
+                this.showPage('home');
+            }
+        },
+
+        registerMarketStore() {
+            const name = document.getElementById('m-name').value;
+            const email = document.getElementById('m-email').value;
+            
+            const generatedId = "VND_" + Math.floor(Math.random() * 80000 + 10000);
+            const generatedPassword = Math.random().toString(36).slice(-6).toUpperCase();
+
+            const payload = {
+                id: 'shop_' + Date.now(),
+                name: name,
+                email: email,
+                login: generatedId,
+                pass: generatedPassword,
+                grossBalance: 0,
+                netBalance: 0,
+                orderCount: 0,
+                inventory: []
+            };
+
+            this.allShops.push(payload);
+            localStorage.setItem('bek_all_shops_v4', JSON.stringify(this.allShops));
+
+            document.getElementById('gen-login').innerText = generatedId;
+            document.getElementById('gen-pass').innerText = generatedPassword;
+            document.getElementById('market-reg-form').style.display = 'none';
+            document.getElementById('credentials-display').style.display = 'block';
+        },
+
+        accessDashboard() {
+            const inputId = document.getElementById('gate-id').value.trim();
+            const inputPass = document.getElementById('gate-pass').value.trim();
+
+            const match = this.allShops.find(x => x.login === inputId && x.pass === inputPass);
+
+            if (match) {
+                this.currentActiveShop = match;
+                localStorage.setItem('bek_current_shop_v4', JSON.stringify(match));
+                this.paintDashboardUI();
+                document.getElementById('market-login-area').style.display = 'none';
+                document.getElementById('market-admin-area').style.display = 'block';
+            } else {
+                alert("Terminal rejection: Invalid parameters.");
+            }
+        },
+
+        paintDashboardUI() {
+            const sh = this.currentActiveShop;
+            document.getElementById('admin-shop-name').innerText = "Management: " + sh.name;
+            document.getElementById('stat-gross').innerText = `$${sh.grossBalance.toFixed(2)}`;
+            document.getElementById('stat-net').innerText = `$${sh.netBalance.toFixed(2)}`;
+            document.getElementById('stat-fees').innerText = `Paid to Bek Platform: $${(sh.grossBalance * 0.12).toFixed(2)}`;
+            document.getElementById('stat-orders').innerText = sh.orderCount;
+            this.renderMyProducts();
+        },
+
+        logoutMarket() {
+            localStorage.removeItem('bek_current_shop_v4');
+            this.currentActiveShop = null;
+            document.getElementById('market-admin-area').style.display = 'none';
+            document.getElementById('market-login-area').style.display = 'block';
+            document.getElementById('gate-id').value = "";
+            document.getElementById('gate-pass').value = "";
+        },
+
+        postProduct() {
+            const t = document.getElementById('p-title').value.trim();
+            const p = parseFloat(document.getElementById('p-price').value);
+            const img = document.getElementById('p-img').value.trim() || 'https://via.placeholder.com/150';
+            const cat = document.getElementById('p-cat').value;
+
+            if(!t || isNaN(p)) return alert("Data Validation failed.");
+
+            const productObject = {
+                id: 'custom_' + Date.now(),
+                title: t,
+                price: p,
+                img: img,
+                cat: cat,
+                vendor: this.currentActiveShop.name
+            };
+
+            this.currentActiveShop.inventory.unshift(productObject);
+            
+            const globalIndex = this.allShops.findIndex(x => x.id === this.currentActiveShop.id);
+            this.allShops[globalIndex] = this.currentActiveShop;
+
+            localStorage.setItem('bek_all_shops_v4', JSON.stringify(this.allShops));
+            localStorage.setItem('bek_current_shop_v4', JSON.stringify(this.currentActiveShop));
+
+            this.syncProducts();
+            this.renderProducts();
+            this.paintDashboardUI();
+
+            alert("Item successfully compiled and listed globally!");
+            document.getElementById('p-title').value = "";
+            document.getElementById('p-price').value = "";
+            document.getElementById('p-img').value = "";
+        },
+
+        renderMyProducts() {
+            const target = document.getElementById('my-live-products');
+            target.innerHTML = this.currentActiveShop.inventory.map(p => `
+                <div class="product-card" style="padding:5px;">
+                    <div class="img-box" style="height:80px;"><img src="${p.img}"></div>
+                    <h3 style="font-size:10px; height:24px;">${p.title}</h3>
+                    <div class="price" style="font-size:13px;">$${p.price}</div>
+                </div>
+            `).join('');
+        },
+
+        // TRANSACTIONS AND SELLER RETENTION CHARGES MODULE
+        executeOrderTransaction() {
+            const cardValue = document.getElementById('card-num').value;
+            const chosenBranch = document.getElementById('geo-branch').value;
+            const grossSum = this.cart.reduce((s, x) => s + (x.price * x.qty), 0);
+
+            this.cart.forEach(cartItem => {
+                const targetShopIdx = this.allShops.findIndex(s => s.name === cartItem.vendor);
+                if (targetShopIdx !== -1) {
+                    const lineGross = cartItem.price * cartItem.qty;
+                    const lineFee = lineGross * 0.12; // 12% absolute platform cut
+                    const lineNet = lineGross - lineFee;
+
+                    this.allShops[targetShopIdx].grossBalance += lineGross;
+                    this.allShops[targetShopIdx].netBalance += lineNet;
+                    this.allShops[targetShopIdx].orderCount += 1;
+                }
+            });
+
+            localStorage.setItem('bek_all_shops_v4', JSON.stringify(this.allShops));
+
+            alert(`🔒 SECURE TRANSACTION COMPLETED!\n\nDestination: ${chosenBranch}\nPaid Gross: $${grossSum.toFixed(2)}\nCard: **** **** **** ${cardValue.slice(-4)}\n\nOrder assigned successfully to the branch!`);
+            
+            this.cart = [];
+            this.syncCartStorage();
+            this.showPage('home');
+
+            // Form resets
+            document.getElementById('card-num').value = "";
+            document.getElementById('card-mmyy').value = "";
+            document.getElementById('card-cvv').value = "";
+        },
+
+        showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            document.getElementById('page-' + id).classList.add('active-page');
+            
+            const targetNavId = 'btn-nav-' + (id === 'open-market' ? 'market' : id);
+            const navBtn = document.getElementById(targetNavId);
+            if(navBtn) navBtn.classList.add('active');
+
+            document.getElementById('home-banner').style.display = (id === 'home' ? 'block' : 'none');
+            
+            if (id === 'cart') this.renderCart();
+            if (id === 'open-market' && this.currentActiveShop) this.paintDashboardUI();
+
+            window.scrollTo(0,0);
+        },
+
+        initBanner() {
+            let slideIndex = 0;
+            setInterval(() => {
+                const stage = document.getElementById('banner-stage');
+                if(stage) {
+                    slideIndex = (slideIndex + 1) % 2;
+                    stage.style.transform = `translateX(-${slideIndex * 100}%)`;
+                }
+            }, 5000);
+        },
+
+        filter(cat) {
+            if(cat === 'All') {
+                this.renderProducts(this.products);
+            } else {
+                const filtered = this.products.filter(p => p.cat === cat);
+                this.renderProducts(filtered);
+            }
+            this.showPage('home');
+        },
+
+        search() {
+            const query = document.getElementById('main-search').value.toLowerCase().trim();
+            if(!query) return this.renderProducts();
+            
+            const filtered = this.products.filter(p => 
+                p.title.toLowerCase().includes(query) || 
+                p.cat.toLowerCase().includes(query)
+            );
+            this.renderProducts(filtered);
+            this.showPage('home');
+        }
+    };
+
+    window.onload = () => app.init();
 </script>
 </body>
 </html>
